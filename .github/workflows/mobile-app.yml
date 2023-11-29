@@ -1,8 +1,6 @@
 name: Auto Release (Build Android)
 
-on:
-  push:
-    branches: [main]
+on: [push, pull_request]
 
 env:
   ANDROID_SDK_ROOT: /usr/lib/android-sdk
@@ -32,11 +30,17 @@ jobs:
           yarn
         working-directory: mobile-app
 
+      - name: Check typescript
+        run: yarn tsc
+        working-directory: mobile-app
+
       - name: Accept licenses
+        if: github.ref == 'refs/heads/main'
         run: |
           echo "y" | sdkmanager --licenses
 
       - name: Build Android Release
+        if: github.ref == 'refs/heads/main'
         run: |
             cd android
             ./gradlew --no-daemon assembleRelease
@@ -44,6 +48,7 @@ jobs:
         working-directory: mobile-app
 
       - name: Create Release
+        if: github.ref == 'refs/heads/main'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
