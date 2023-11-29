@@ -1,0 +1,56 @@
+name: Auto Release (Build Android)
+
+on:
+  push:
+    branches: [main]
+
+env:
+  ANDROID_SDK_ROOT: /usr/lib/android-sdk
+
+jobs:
+  build-android:
+    permissions: write-all
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+
+      - name: Install dependencies
+        run: |
+          apt-get update && apt-get install -y android-sdk sdkmanager
+          npm install -g yarn
+          yarn
+        working-directory: mobile-app
+
+      - name: Accept licenses
+        run: |
+          echo "y" | sdkmanager --licenses
+
+      - name: Build Android Release
+        run: |
+            cd android
+            ./gradlew --no-daemon assembleRelease
+            cp app/build/outputs/apk/release/app-release.apk ../electroBOB.apk
+        working-directory: mobile-app
+
+      - name: Create Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION=$(bash get_version.sh)
+          gh release create "$VERSION"    \
+            --title "mobile app $VERSION" \
+            --generate-notes              \
+            --target main                 \
+            "$PWD/electroBOB.apk#electroBOB.apk"
+        working-directory: mobile-app
