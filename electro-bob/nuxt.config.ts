@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default {
+  srr: false,
   head: {
     title: 'electro-bob',
     htmlAttrs: {
@@ -32,7 +33,11 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/eslint
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/eslint-module',
+    "@nuxtjs/ionic",
+  ],
+
+  modules: [
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
