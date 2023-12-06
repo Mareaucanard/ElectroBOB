@@ -1,4 +1,11 @@
 services:
+  generate-mobile-app:
+    build:
+      context: electro-bob
+      dockerfile: create_apk.dockerfile
+    volumes:
+      - client:/var/client/
+    image: internal/web
   web:
     depends_on:
       - generate-mobile-app
@@ -6,12 +13,9 @@ services:
       context: electro-bob
       dockerfile: web-client.dockerfile
     ports:
-      - "3000:8001"
+      - "8001:3000"
     volumes:
-      - ./mobile-app:/var/mobile-app
-  generate-mobile-app:
-    build:
-      context: electro-bob
-      dockerfile: create_apk.dockerfile
-    volumes:
-      - ./mobile-app:/var/mobile-app
+      - client:/var/client/
+
+volumes:
+  client:

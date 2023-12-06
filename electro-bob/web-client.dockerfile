@@ -4,9 +4,10 @@ COPY . /web-client
 WORKDIR /web-client
 
 RUN yarn
+RUN yarn add serve
 
 RUN npx nuxi generate
 
-RUN cp /var/mobile-app/*.apk .output/public/client.apk
+COPY --from=internal/web /var/electroBOB.apk .output/public/client.apk
 
 CMD ["npx", "serve", ".output/public"]

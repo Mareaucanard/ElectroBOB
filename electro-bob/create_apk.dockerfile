@@ -25,4 +25,4 @@ COPY . /build-app/
 RUN yarn
 RUN bash build-app.sh
 
-RUN cp ./electroBOB.apk /var/mobile-app
+RUN cp ./electroBOB.apk /var/electroBOB.apk
