@@ -1,4 +1,5 @@
-﻿namespace Eletro_BOB_API.Models
+﻿
+namespace Eletro_BOB_API.Models
 {
     public class Area
     {
