@@ -38,6 +38,7 @@ export default {
   ],
 
   modules: [
+    '@nuxt/ui',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
