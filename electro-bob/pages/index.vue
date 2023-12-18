@@ -1,5 +1,6 @@
 
 <template>
+    <NavBar></NavBar>
     <div class="buttonWrapper">
         <div class="hello">
             <UButton to="/login" block>Login</UButton>
