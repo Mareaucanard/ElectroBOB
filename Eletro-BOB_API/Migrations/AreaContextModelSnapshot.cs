@@ -90,7 +90,12 @@ namespace Eletro_BOB_API.Migrations
                     b.Property<bool>("ActiveSMS")
                         .HasColumnType("bit");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Preference", (string)null);
                 });
@@ -132,14 +137,9 @@ namespace Eletro_BOB_API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PreferenceId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("PreferenceId");
-
-                    b.ToTable("User", (string)null);
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("Eletro_BOB_API.Models.Area", b =>
@@ -161,15 +161,15 @@ namespace Eletro_BOB_API.Migrations
                     b.Navigation("ReactionTrigger");
                 });
 
-            modelBuilder.Entity("Eletro_BOB_API.Models.Users", b =>
+            modelBuilder.Entity("Eletro_BOB_API.Models.Preference", b =>
                 {
-                    b.HasOne("Eletro_BOB_API.Models.Preference", "Preference")
-                        .WithMany("Users")
-                        .HasForeignKey("PreferenceId")
+                    b.HasOne("Eletro_BOB_API.Models.Users", "Users")
+                        .WithMany("Preferences")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Preference");
+                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("Eletro_BOB_API.Models.ActionTrigger", b =>
@@ -177,14 +177,14 @@ namespace Eletro_BOB_API.Migrations
                     b.Navigation("Areas");
                 });
 
-            modelBuilder.Entity("Eletro_BOB_API.Models.Preference", b =>
-                {
-                    b.Navigation("Users");
-                });
-
             modelBuilder.Entity("Eletro_BOB_API.Models.ReactionTrigger", b =>
                 {
                     b.Navigation("Areas");
+                });
+
+            modelBuilder.Entity("Eletro_BOB_API.Models.Users", b =>
+                {
+                    b.Navigation("Preferences");
                 });
 #pragma warning restore 612, 618
         }

@@ -7,9 +7,11 @@ namespace Eletro_BOB_API.Models
     {
         [Key]
         public int Id { get; set; }
+        [ForeignKey("Users")]
+        public int UserId { get; set; }
+        public virtual Users Users { get; set; }
         public bool ActiveNotifications { get; set; }
         public bool ActiveEmail { get; set; }
         public bool ActiveSMS { get; set; }
-        public virtual ICollection<Users> Users { get; set; }
     }
 }

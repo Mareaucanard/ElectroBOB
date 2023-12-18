@@ -24,7 +24,7 @@ namespace Eletro_BOB_API.Context
             modelBuilder.Entity<ActionTrigger>().ToTable("ActionTrigger");
             modelBuilder.Entity<Area>().ToTable("Area");
             modelBuilder.Entity<Preference>().ToTable("Preference");
-            modelBuilder.Entity<Users>().ToTable("User");
+            modelBuilder.Entity<Users>().ToTable("Users");
             modelBuilder.Entity<ReactionTrigger>().ToTable("ReactionTrigger");
         }
     }

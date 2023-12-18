@@ -2,6 +2,7 @@
 using Eletro_BOB_API.Models;
 using Eletro_BOB_API.Context;
 using Eletro_BOB_API.Classes;
+using Microsoft.EntityFrameworkCore;
 
 namespace Eletro_BOB_API.Controllers
 {
@@ -20,20 +21,19 @@ namespace Eletro_BOB_API.Controllers
         {
             try
             {
-                /*Users newUser = new Users();
+                Users newUser = new Users();
                 newUser.Login = user.Login;
                 newUser.Password = user.Password;
                 await _context.Users.AddAsync(newUser);
                 await _context.SaveChangesAsync();
-                return Ok("User created succesfuly");*/
-                if (_context == null)
-                {
-                    return BadRequest("Context is null");
-                }
-                ActionTrigger action = new ActionTrigger();
-                action.Name = "Test";
-                action.Url = "Test";
-                await _context.Actions.AddAsync(action);
+
+                Preference newPref = new Preference();
+                newPref.ActiveNotifications = true;
+                newPref.ActiveSMS = true;
+                newPref.ActiveEmail = true;
+                Users temp = await _context.Users.Where(u => u.Login == user.Login).FirstOrDefaultAsync();
+                newPref.UserId = temp.Id;
+                await _context.Preferences.AddAsync(newPref);
                 await _context.SaveChangesAsync();
                 return Ok("User created succesfuly");
             }

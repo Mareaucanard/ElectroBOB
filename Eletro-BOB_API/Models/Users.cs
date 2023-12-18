@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Eletro_BOB_API.Models
 {
@@ -8,7 +9,7 @@ namespace Eletro_BOB_API.Models
         public int Id { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
-        public int PreferenceId { get; set; }
-        public virtual Preference Preference { get; set; }
+
+        public virtual ICollection<Preference> Preferences { get; set; }
     }
 }
