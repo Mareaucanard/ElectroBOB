@@ -12,8 +12,7 @@ namespace Eletro_BOB_API.Controllers
         public IActionResult Get()
         {
             // get all preferences of the user
-            Preference[] preferenceList = { new Preference(1, true, true, false), new Preference(2, false, true, false) };
-            return Ok(preferenceList.Where(test => test.Id == 1));
+            return Ok("ok");
         }
     }
 }

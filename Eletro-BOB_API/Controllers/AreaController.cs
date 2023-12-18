@@ -12,8 +12,7 @@ namespace Eletro_BOB_API.Controllers
         public IActionResult Get(int id)
         {
             // get all Area of the id of the user
-            Area[] areaList = { new Area(1, "React discord", "React to a discord post when published", 1, 1), new Area(2, "Msg discord", "Send a discord msg when received one", 2, 3) };
-            return Ok(areaList);
+            return Ok("ok");
         }
 
         [HttpPost]

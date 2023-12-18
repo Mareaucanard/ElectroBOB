@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Eletro_BOB_API.Models;
+using Eletro_BOB_API.Context;
+using Eletro_BOB_API.Classes;
 
 namespace Eletro_BOB_API.Controllers
 {
@@ -8,22 +9,36 @@ namespace Eletro_BOB_API.Controllers
     [ApiController]
     public class ConnexionController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult Get()
+        private readonly AreaContext _context;
+        public ConnexionController(AreaContext context)
         {
-            return Ok("Ok");
+            _context = context;
         }
 
         [HttpPost]
-        public IActionResult Post(User user)
+        public IActionResult Post(BasicUser user)
         {
-            if (user.Login == "admin" && user.Password == "admin")
+            try
             {
+                _context.Users.Find(1);
                 return Ok("Token");
+                /*Users temp = _context.Users.Where(u => u.Login == user.Login).FirstOrDefault();
+                if (temp == null)
+                {
+                    return Unauthorized("Invalid login or password");
+                }
+                if (user.Password == temp.Password)
+                {
+                    return Ok("Token");
+                }
+                else
+                {
+                    return Unauthorized("Invalid login or password");
+                }*/
             }
-            else
+            catch (Exception e)
             {
-                return Unauthorized("Invalid login or password");
+                return BadRequest(e);
             }
         }
     }
