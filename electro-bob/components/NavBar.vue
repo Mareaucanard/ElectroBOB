@@ -48,19 +48,19 @@ const isOpen = ref(false)
                     <img src="../assets/parameter.png" type="icon">
                 </UButton>
                 <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-full' }" type="icon">
-                    <img src="../assets/parameter.png" type="icon">
+                    <img src="../assets/groups.png" type="icon">
                 </UButton>
                 <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-full' }" type="icon">
-                    <img src="../assets/parameter.png" type="icon">
+                    <img src="../assets/messages.png" type="icon">
                 </UButton>
                 <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-full' }" type="icon">
-                    <img src="../assets/parameter.png" type="icon">
+                    <img src="../assets/services.png" type="icon">
                 </UButton>
                 <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-full' }" type="icon">
-                    <img src="../assets/parameter.png" type="icon">
+                    <img src="../assets/automate.png" type="icon">
                 </UButton>
                 <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-full' }" type="icon">
-                    <img src="../assets/parameter.png" type="icon">
+                    <img src="../assets/help.png" type="icon">
                 </UButton>
           </div>
         </USlideover>
