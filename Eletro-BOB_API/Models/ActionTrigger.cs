@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Hosting;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Eletro_BOB_API.Models
 {
@@ -10,6 +11,8 @@ namespace Eletro_BOB_API.Models
         public string Name { get; set; }
         public string Url { get; set;}
 
-        public virtual ICollection<Area> Areas { get; set; }
+        [ForeignKey("Area")]
+        public int AreaId { get; set; }
+        public virtual Area Area { get; set; }
     }
 }

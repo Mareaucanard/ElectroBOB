@@ -17,6 +17,8 @@ namespace Eletro_BOB_API.Context
         public DbSet<Area> Areas { get; set; }
         public DbSet<Preference> Preferences { get; set; }
         public DbSet<Users> Users { get; set; }
+        public DbSet<ActionCatalog> ActionCatalogs { get; set; }
+        public DbSet<ReactionCatalog> ReactionCatalogs { get; set; }
         public DbSet<ReactionTrigger> Reactions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -26,6 +28,8 @@ namespace Eletro_BOB_API.Context
             modelBuilder.Entity<Preference>().ToTable("Preference");
             modelBuilder.Entity<Users>().ToTable("Users");
             modelBuilder.Entity<ReactionTrigger>().ToTable("ReactionTrigger");
+            modelBuilder.Entity<ReactionCatalog>().ToTable("ReactionCatalog");
+            modelBuilder.Entity<ActionCatalog>().ToTable("ActionCatalog");
         }
     }
 }

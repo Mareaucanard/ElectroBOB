@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Eletro_BOB_API.Migrations
 {
     [DbContext(typeof(AreaContext))]
-    [Migration("20231218174315_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20231219125221_toto")]
+    partial class toto
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,7 +24,7 @@ namespace Eletro_BOB_API.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Eletro_BOB_API.Models.ActionTrigger", b =>
+            modelBuilder.Entity("Eletro_BOB_API.Models.ActionCatalog", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -36,11 +36,33 @@ namespace Eletro_BOB_API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.HasKey("Id");
+
+                    b.ToTable("ActionCatalog", (string)null);
+                });
+
+            modelBuilder.Entity("Eletro_BOB_API.Models.ActionTrigger", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AreaId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Url")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AreaId");
 
                     b.ToTable("ActionTrigger", (string)null);
                 });
@@ -53,25 +75,23 @@ namespace Eletro_BOB_API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("ActionId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ReactionId")
+                    b.Property<int>("UsersId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ActionId");
-
-                    b.HasIndex("ReactionId");
+                    b.HasIndex("UsersId");
 
                     b.ToTable("Area", (string)null);
                 });
@@ -103,7 +123,7 @@ namespace Eletro_BOB_API.Migrations
                     b.ToTable("Preference", (string)null);
                 });
 
-            modelBuilder.Entity("Eletro_BOB_API.Models.ReactionTrigger", b =>
+            modelBuilder.Entity("Eletro_BOB_API.Models.ReactionCatalog", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -115,11 +135,33 @@ namespace Eletro_BOB_API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.HasKey("Id");
+
+                    b.ToTable("ReactionCatalog", (string)null);
+                });
+
+            modelBuilder.Entity("Eletro_BOB_API.Models.ReactionTrigger", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AreaId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Url")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AreaId");
 
                     b.ToTable("ReactionTrigger", (string)null);
                 });
@@ -145,23 +187,26 @@ namespace Eletro_BOB_API.Migrations
                     b.ToTable("Users", (string)null);
                 });
 
+            modelBuilder.Entity("Eletro_BOB_API.Models.ActionTrigger", b =>
+                {
+                    b.HasOne("Eletro_BOB_API.Models.Area", "Area")
+                        .WithMany("ActionTriggers")
+                        .HasForeignKey("AreaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Area");
+                });
+
             modelBuilder.Entity("Eletro_BOB_API.Models.Area", b =>
                 {
-                    b.HasOne("Eletro_BOB_API.Models.ActionTrigger", "ActionTrigger")
+                    b.HasOne("Eletro_BOB_API.Models.Users", "Users")
                         .WithMany("Areas")
-                        .HasForeignKey("ActionId")
+                        .HasForeignKey("UsersId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Eletro_BOB_API.Models.ReactionTrigger", "ReactionTrigger")
-                        .WithMany("Areas")
-                        .HasForeignKey("ReactionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ActionTrigger");
-
-                    b.Navigation("ReactionTrigger");
+                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("Eletro_BOB_API.Models.Preference", b =>
@@ -175,18 +220,28 @@ namespace Eletro_BOB_API.Migrations
                     b.Navigation("Users");
                 });
 
-            modelBuilder.Entity("Eletro_BOB_API.Models.ActionTrigger", b =>
-                {
-                    b.Navigation("Areas");
-                });
-
             modelBuilder.Entity("Eletro_BOB_API.Models.ReactionTrigger", b =>
                 {
-                    b.Navigation("Areas");
+                    b.HasOne("Eletro_BOB_API.Models.Area", "Area")
+                        .WithMany("ReactionTriggers")
+                        .HasForeignKey("AreaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Area");
+                });
+
+            modelBuilder.Entity("Eletro_BOB_API.Models.Area", b =>
+                {
+                    b.Navigation("ActionTriggers");
+
+                    b.Navigation("ReactionTriggers");
                 });
 
             modelBuilder.Entity("Eletro_BOB_API.Models.Users", b =>
                 {
+                    b.Navigation("Areas");
+
                     b.Navigation("Preferences");
                 });
 #pragma warning restore 612, 618
