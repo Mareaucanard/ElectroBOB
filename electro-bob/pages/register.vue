@@ -41,6 +41,29 @@ async function onSubmit(event) {
             </UForm>
         </div>
     </div>
+    <div class="hello" v-else>
+        <div class="mobile-modal">
+            <img src="../assets/ElectroBob 1.png" type="logo">
+            <h1>LOGIN</h1>
+            <UForm :ui="{ label: {} }" :validate="validate" :state="state" class="space-y-4 uform" @submit="onSubmit">
+                <UFormGroup name="email">
+                    <Input v-model="state.email" placeholder="user email" class="mobile-input"/>
+                </UFormGroup>
+
+                <UFormGroup name="password">
+                    <Input v-model="state.password" type="password" placeholder="user password" class="mobile-input" />
+                </UFormGroup>
+
+                <UFormGroup name="confirm">
+                    <Input v-model="state.confirm" type="password" placeholder="confirm password" class="mobile-input"/>
+                </UFormGroup>
+
+                <UButton type="submit" class="mobile-submit" variant="link">
+                    <img src="../assets/submit button.png" type="mobile-submit"/>
+                </UButton>
+            </UForm>
+        </div>
+    </div>
 </template>
 
 <style>
@@ -98,6 +121,49 @@ img[type="logo"]{
 
 img[type=submit] {
     width: 65px;
+}
+
+/* CSS FOR MOBILE*/
+
+.mobile-modal {
+    width: 338px;
+    height: 542px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    background-color: #062f337c;
+    border-radius: 15px;
+}
+
+.mobile-input {
+    width: 210px;
+    height: 49px;
+    background-color: white;
+    border-radius: 15px;
+    color: black;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.mobile-submit {
+    width: 66px;
+    height: 68px;
+}
+
+
+.mobile-register {
+    width: 129px;
+    height: 38px;
+    margin-left: 200px;
+    margin-bottom: -35px;
+    background-color: white;
+    border-radius: 15px;
+    color: black;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 500;
 }
 
 </style>
