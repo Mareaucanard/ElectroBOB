@@ -15,7 +15,7 @@ const isOpen = ref(false)
             <div class="line"/>
             <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-2xl' }">groups</UButton>
             <div class="line"/>
-            <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-2xl' }">message</UButton>
+            <UButton class="UButton" to="/messages" :ui="{ rounded: 'rounded-2xl' }">message</UButton>
             <div class="line"/>
         </div>
         <div class="logo">
@@ -33,8 +33,8 @@ const isOpen = ref(false)
         </div>
     </nav>
     <div class="mobile-nav" v-if="$device.isMobile">
-        <button @click="isOpen = true" class="toggel button">
-            <img src="../assets/ElectroBob 1.png" type="toggel button">
+        <button @click="isOpen = true" class="toggel-button">
+            <img src="../assets/ElectroBob 1.png" type="toggel-button">
         </button>
         <USlideover class="slider h-2/3 rounded-br-2xl" v-model="isOpen" :overlay="false" :side="left">
           <div class="slider-button">
@@ -50,7 +50,7 @@ const isOpen = ref(false)
                 <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-full' }" type="icon">
                     <img src="../assets/groups.png" type="icon">
                 </UButton>
-                <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-full' }" type="icon">
+                <UButton class="UButton" to="/messages" :ui="{ rounded: 'rounded-full' }" type="icon">
                     <img src="../assets/messages.png" type="icon">
                 </UButton>
                 <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-full' }" type="icon">
@@ -122,16 +122,16 @@ img[type="logo button"]{
 /* CSS FOR MOBILE*/
 
 .mobile-nav {
-    width: 80px;
+    width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items:start;
+    background-color: #062F33;
 }
 
 .slider {
     width: 80px;
-    background-color: #BFDBDE;
-    opacity: 100%;
+    background-color: #bfdbde9b;
 }
 
 .slider-button {
@@ -142,16 +142,17 @@ img[type="logo button"]{
     height: 100%;
 }
 
-.toggel button{
+.toggel-button{
     width: 57px;
-    margin-top: 15px;
+    margin-top: 13px;
+    margin-left: 12px;
 }
 
 .inside-toggel-button {
     width: 57px;
 }
 
-img[type="toggel button"] {
+img[type="toggel-button"] {
     width: 57px;
     margin-top: 15px;
 }

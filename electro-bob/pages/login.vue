@@ -109,6 +109,7 @@ async function onSubmit(event) {
     text-align: center;
     font-size: 25px;
     font-weight: 500;
+    outline: none;
 }
 
 .register {
@@ -164,6 +165,7 @@ img[type=submit] {
     text-align: center;
     font-size: 25px;
     font-weight: 500;
+    outline: none;
 }
 
 .mobile-submit {
