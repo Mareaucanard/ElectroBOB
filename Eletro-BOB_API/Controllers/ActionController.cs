@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Eletro_BOB_API.Context;
+using Eletro_BOB_API.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Eletro_BOB_API.Controllers
 {
@@ -7,11 +10,24 @@ namespace Eletro_BOB_API.Controllers
     [ApiController]
     public class ActionController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult Get()
+        private readonly AreaContext _context;
+        public ActionController(AreaContext context)
         {
-            string[] actionList = new string[] { "Discord:Receive a message", "Discord:message in groupe", "Whatsapp:Message in group" };
-            return Ok(actionList);
+            _context = context;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            try
+            {
+                List<ActionCatalog> actions = await _context.ActionCatalogs.ToListAsync();
+                return Ok(actions);
+            }
+            catch (Exception e)
+            {
+                return BadRequest("Echec de récupération des actions");
+            }
         }
     }
 }

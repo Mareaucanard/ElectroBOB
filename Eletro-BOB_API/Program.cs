@@ -3,6 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using System.Configuration;
 using Microsoft.Data.SqlClient;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,11 +16,28 @@ IConfigurationRoot configuration = new ConfigurationBuilder()
         .Build();
 
 builder.Services.AddControllers();
-Console.WriteLine(configuration.GetConnectionString("AreaDataBase"));
 builder.Services.AddDbContext<AreaContext>(opt => opt.UseSqlServer(configuration.GetConnectionString("AreaDataBase")));
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(o =>
+{
+    o.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        ValidAudience = builder.Configuration["Jwt:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey
+        (Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])),
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = false,
+        ValidateIssuerSigningKey = true
+    };
+});
 builder.Services.AddAuthorization();
-builder.Services.AddAuthentication("Bearer").AddJwtBearer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
@@ -31,11 +51,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
-
-/*app.MapGet("/", () => "Hello, World!");
-app.MapGet("/secret", (ClaimsPrincipal user) => $"Hello {user.Identity?.Name}. My secret")
-    .RequireAuthorization();*/
 
 app.MapControllers();
 

@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Eletro_BOB_API.Context;
+using Eletro_BOB_API.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Eletro_BOB_API.Controllers
 {
@@ -7,11 +10,24 @@ namespace Eletro_BOB_API.Controllers
     [ApiController]
     public class ReactionController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult Get()
+        private readonly AreaContext _context;
+        public ReactionController(AreaContext context)
         {
-            string[] reactionList = new string[] { "Discord:Send a message", "Discord:Add reaction to message", "Whatsapp:Send message in group" };
-            return Ok(reactionList);
+            _context = context;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            try
+            {
+                List<ReactionCatalog> reactions = await _context.ReactionCatalogs.ToListAsync();
+                return Ok(reactions);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("Counld get reactions");
+            }
         }
     }
 }

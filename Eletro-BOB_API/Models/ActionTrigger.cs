@@ -9,7 +9,8 @@ namespace Eletro_BOB_API.Models
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Url { get; set;}
+        public int nbMin { get; set; }
+        public DateTime NextTrigger { get; set; }
 
         [ForeignKey("Area")]
         public int AreaId { get; set; }
