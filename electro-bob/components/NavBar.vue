@@ -1,3 +1,7 @@
+<script setup>
+const isOpen = ref(false)
+</script>
+
 <template>
     <nav v-if="$device.isDesktop">
         <div class="start-bar">
@@ -28,13 +32,40 @@
             <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-2xl' }" type="help">help</UButton>
         </div>
     </nav>
-    <nav v-else>
-        <h1>HELLO THIS IS APP</h1>
-    </nav>
+    <div class="mobile-nav" v-if="$device.isMobile">
+        <button @click="isOpen = true" class="toggel button">
+            <img src="../assets/ElectroBob 1.png" type="toggel button">
+        </button>
+        <USlideover class="slider h-2/3 rounded-br-2xl" v-model="isOpen" :overlay="false" :side="left">
+          <div class="slider-button">
+                <button @click="isOpen = false" class="inside-toggel-button">
+                  <img src="../assets/ElectroBob 1.png" type="">
+                </button>
+                <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-full' }" type="icon">
+                    <img src="../assets/profile.png" type="icon">
+                </UButton>
+                <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-full' }" type="icon">
+                    <img src="../assets/parameter.png" type="icon">
+                </UButton>
+                <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-full' }" type="icon">
+                    <img src="../assets/parameter.png" type="icon">
+                </UButton>
+                <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-full' }" type="icon">
+                    <img src="../assets/parameter.png" type="icon">
+                </UButton>
+                <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-full' }" type="icon">
+                    <img src="../assets/parameter.png" type="icon">
+                </UButton>
+                <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-full' }" type="icon">
+                    <img src="../assets/parameter.png" type="icon">
+                </UButton>
+                <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-full' }" type="icon">
+                    <img src="../assets/parameter.png" type="icon">
+                </UButton>
+          </div>
+        </USlideover>
+    </div>
 </template>
-
-<script setup>
-</script>
 
 <style>
 nav {
@@ -86,6 +117,43 @@ img[type="logo button"]{
     height: 49px;
     width: 2px;
     background-color: #7A9597;
+}
+
+/* CSS FOR MOBILE*/
+
+.mobile-nav {
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items:start;
+}
+
+.slider {
+    width: 80px;
+    background-color: #BFDBDE;
+    opacity: 100%;
+}
+
+.slider-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+}
+
+.toggel button{
+    width: 57px;
+    margin-top: 15px;
+}
+
+.inside-toggel-button {
+    width: 57px;
+}
+
+img[type="toggel button"] {
+    width: 57px;
+    margin-top: 15px;
 }
 
 </style>
