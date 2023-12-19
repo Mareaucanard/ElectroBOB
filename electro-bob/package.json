@@ -12,6 +12,7 @@
   "devDependencies": {
     "@capacitor/cli": "5.5.1",
     "@nuxt/devtools": "latest",
+    "@nuxtjs/device": "^3.1.1",
     "@vue/cli-service": "5.0.8",
     "nuxt": "^3.8.2",
     "sass": "^1.69.5",

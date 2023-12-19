@@ -40,6 +40,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/ui',
     "@nuxtjs/ionic",
+    "@nuxtjs/device"
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

@@ -2,7 +2,7 @@
 <template>
     <ion-page>
         <ion-content :fullscreen="true">
-           <NavBar></NavBar>
+           <NavBar/>
             <div id="container">
                 <div class="buttonWrapper">
                     <div class="hello">

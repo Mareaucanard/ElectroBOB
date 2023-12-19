@@ -1,5 +1,5 @@
 <template>
-    <nav>
+    <nav v-if="$device.isDesktop">
         <div class="start-bar">
             <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-full' }" type="icon">
                 <img src="../assets/profile.png" type="icon">
@@ -27,6 +27,9 @@
             <div class="line"/>
             <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-2xl' }" type="help">help</UButton>
         </div>
+    </nav>
+    <nav v-else>
+        <h1>HELLO THIS IS APP</h1>
     </nav>
 </template>
 
