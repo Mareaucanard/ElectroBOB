@@ -16,7 +16,7 @@
         </div>
         <div class="logo">
             <button>
-                <img src="../assets/ElectroBob 1.png" type="logo">
+                <img src="../assets/ElectroBob 1.png" type="logo button">
             </button>
         </div>
         <div class="start-bar">
@@ -77,7 +77,7 @@ nav {
     height: 48px;
 }
 
-img[type="logo"]{
+img[type="logo button"]{
     width: 130px;
     margin-top: 50px;
 }

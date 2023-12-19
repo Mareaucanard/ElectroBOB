@@ -21,7 +21,6 @@ async function onSubmit(event) {
 <template>
     <ion-page v-if="$device.isDesktop">
         <ion-content :fullscreen="true">
-            <NavBar/>
             <div class="hello">
                 <div class="modal">
                     <img src="../assets/ElectroBob 1.png" type="logo">
@@ -32,7 +31,7 @@ async function onSubmit(event) {
                         </UFormGroup>
 
                         <UFormGroup name="password">
-                            <Input v-model="state.password" type="password"  placeholder="user password" class="input" />
+                            <Input v-model="state.password" type="password" placeholder="user password" class="input" />
                         </UFormGroup>
 
                         <UButton type="submit" class="submit">
