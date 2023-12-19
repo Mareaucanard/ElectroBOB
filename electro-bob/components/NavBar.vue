@@ -36,7 +36,7 @@
 <style>
 nav {
     height: 60px;
-    background-color: #7a9597b0;
+    background-color: #BFDBDE;
     display: flex;
     justify-content: space-evenly;
     align-items: center;

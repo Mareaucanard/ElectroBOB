@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-export default {
-  srr: false,
+export default defineNuxtConfig({
+  ssr: false,
   head: {
     title: 'electro-bob',
     htmlAttrs: {
@@ -20,6 +20,7 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '~/assets/styles/main.scss',
+    '~/assets/css/ionic.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -34,11 +35,11 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
-    "@nuxtjs/ionic",
   ],
 
   modules: [
     '@nuxt/ui',
+    "@nuxtjs/ionic",
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -49,5 +50,13 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+  experimental: {
+    payloadExtraction: false
+  },
+  ui: {
+    button: {
+      default: { color: "green" }
+    }
   }
-}
+})

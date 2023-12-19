@@ -1,17 +1,20 @@
 
 <template>
-    <NavBar></NavBar>
-    <div class="buttonWrapper">
-        <div class="hello">
-            <UButton to="/login" block>Login</UButton>
-            <div class="spacing" />
-            <UButton to="/register" block>Register</UButton>
-        </div>
-    </div>
+    <ion-page>
+        <ion-content :fullscreen="true">
+           <NavBar></NavBar>
+            <div id="container">
+                <div class="buttonWrapper">
+                    <div class="hello">
+                        <UButton to="/login" block>Login</UButton>
+                        <div class="spacing" />
+                        <UButton to="/register" block>Register</UButton>
+                    </div>
+                </div>
+            </div>
+        </ion-content>
+    </ion-page>
 </template>
-
-<script setup>
-</script>
 
 <style>
 .buttonWrapper {

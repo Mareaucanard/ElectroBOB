@@ -18,30 +18,35 @@ async function onSubmit(event) {
 </script>
 
 <template>
-    <h1>Login</h1>
-    <div class="hello">
-        <UForm :ui="{label: {}}" :validate="validate" :state="state" class="space-y-4" @submit="onSubmit">
-            <UFormGroup label="Email" name="email">
-                <UInput v-model="state.email" />
-            </UFormGroup>
+    <ion-page>
+        <ion-content :fullscreen="true">
+            <NavBar/>
+            <div class="hello">
+                <UForm :ui="{ label: {} }" :validate="validate" :state="state" class="space-y-4" @submit="onSubmit">
+                    <UFormGroup label="Email" name="email">
+                        <UInput v-model="state.email" />
+                    </UFormGroup>
 
-            <UFormGroup label="Password" name="password">
-                <UInput v-model="state.password" type="password" />
-            </UFormGroup>
+                    <UFormGroup label="Password" name="password">
+                        <UInput v-model="state.password" type="password" />
+                    </UFormGroup>
 
-            <UButton type="submit">
-                Submit
-            </UButton>
-        </UForm>
-    </div>
+                    <UButton type="submit">
+                        Submit
+                    </UButton>
+                </UForm>
+            </div>
+        </ion-content>
+    </ion-page>
 </template>
 
 <style>
-    .hello {
-        display: flex;
-        justify-content: center;
-    }
-    .form {
-        width: 500px;
-    }
+.hello {
+    display: flex;
+    justify-content: center;
+}
+
+.form {
+    width: 500px;
+}
 </style>
