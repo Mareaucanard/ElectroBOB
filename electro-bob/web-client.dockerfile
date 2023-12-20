@@ -8,6 +8,6 @@ RUN yarn add serve
 
 RUN npx nuxi generate
 
-COPY --from=internal/web /var/electroBOB.apk .output/public/client.apk
+COPY --from=internal/web /var/electroBOB.apk dist/client.apk
 
-CMD ["npx", "serve", ".output/public"]
+CMD ["npx", "serve", "dist"]

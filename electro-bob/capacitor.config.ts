@@ -1,9 +1,9 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-    appId: 'com.company.electroBOB',
-    appName: 'ElectroBOB',
-    webDir: '.output/public',
+    appId: 'com.volume.electrobob',
+    appName: 'Electro BOB',
+    webDir: 'dist',
 };
 
 export default config;
