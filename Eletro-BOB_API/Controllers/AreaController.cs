@@ -127,6 +127,7 @@ namespace Eletro_BOB_API.Controllers
                 _context.ReactionTriggers.RemoveRange(reactions);
                 _context.ActionTriggers.Remove(action);
                 _context.Areas.Remove(area);
+                await _context.SaveChangesAsync();
                 return Ok("Area succesfuly deleted");
             }
             catch (Exception e)
