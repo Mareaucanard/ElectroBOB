@@ -40,8 +40,11 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/ui',
     "@nuxtjs/ionic",
-    "@nuxtjs/device"
+    "@nuxtjs/device",
+    '@sidebase/nuxt-auth'
   ],
+
+  auth: { provider: { type: 'authjs' } },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {

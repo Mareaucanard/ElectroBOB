@@ -9,12 +9,27 @@ const validate = (state) => {
     const errors = []
     if (!state.email) errors.push({ path: 'email', message: 'Required' })
     if (!state.password) errors.push({ path: 'password', message: 'Required' })
-    if (state.password != state.confirm) errors.push({ path: 'confirm', message: 'Does not match'})
+    if (state.password != state.confirm) errors.push({ path: 'confirm', message: 'Does not match' })
     return errors
 }
 
 async function onSubmit(event) {
-    console.log(event.data)
+    const { email, password } = event.data
+    const API_URL = "http://localhost:8080/api/Register"
+    try {
+        const response = await $fetch(API_URL,
+            {
+                method: 'POST',
+                body: {
+                    login: email,
+                    password: password
+                }
+            })
+        console.log(response)
+        commit
+    } catch (e) {
+        console.error(e)
+    }
 }
 </script>
 
@@ -25,18 +40,18 @@ async function onSubmit(event) {
             <h1>REGISTER</h1>
             <UForm :ui="{ label: {} }" :validate="validate" :state="state" class="space-y-4 uform" @submit="onSubmit">
                 <UFormGroup name="email">
-                    <input v-model="state.email" placeholder="user email" class="input"/>
+                    <input v-model="state.email" placeholder="user email" class="input" />
                 </UFormGroup>
 
                 <UFormGroup name="password">
-                    <input v-model="state.password" type="password" placeholder="user password" class="input"/>
+                    <input v-model="state.password" type="password" placeholder="user password" class="input" />
                 </UFormGroup>
                 <UFormGroup name="confirm">
-                    <input v-model="state.confirm" type="password" placeholder="confirm password" class="input"/>
+                    <input v-model="state.confirm" type="password" placeholder="confirm password" class="input" />
                 </UFormGroup>
 
                 <UButton type="submit" class="submit">
-                    <img src="../assets/submit button.png" type="submit"/>
+                    <img src="../assets/submit button.png" type="submit" />
                 </UButton>
             </UForm>
         </div>
@@ -47,7 +62,7 @@ async function onSubmit(event) {
             <h1>LOGIN</h1>
             <UForm :ui="{ label: {} }" :validate="validate" :state="state" class="space-y-4 uform" @submit="onSubmit">
                 <UFormGroup name="email">
-                    <input v-model="state.email" placeholder="user email" class="mobile-input"/>
+                    <input v-model="state.email" placeholder="user email" class="mobile-input" />
                 </UFormGroup>
 
                 <UFormGroup name="password">
@@ -55,11 +70,11 @@ async function onSubmit(event) {
                 </UFormGroup>
 
                 <UFormGroup name="confirm">
-                    <input v-model="state.confirm" type="password" placeholder="confirm password" class="mobile-input"/>
+                    <input v-model="state.confirm" type="password" placeholder="confirm password" class="mobile-input" />
                 </UFormGroup>
 
                 <UButton type="submit" class="mobile-submit" variant="link">
-                    <img src="../assets/submit button.png" type="mobile-submit"/>
+                    <img src="../assets/submit button.png" type="mobile-submit" />
                 </UButton>
             </UForm>
         </div>
@@ -111,7 +126,7 @@ h1 {
     font-size: 45px;
 }
 
-img[type="logo"]{
+img[type="logo"] {
     width: 130px;
     margin-top: -80px;
 }
@@ -167,5 +182,4 @@ img[type=submit] {
     font-size: 25px;
     font-weight: 500;
 }
-
 </style>
