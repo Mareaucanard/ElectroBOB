@@ -39,6 +39,9 @@ async function onSubmit(event) {
                 </div>
                 <div class="message">
                     <textarea v-model="state.message" class="message-input" placeholder="Write here"/>
+                    <button type="submit" class="submit">
+                        save
+                    </button>
                 </div>
             </UForm>
         </ion-content>
@@ -63,6 +66,9 @@ async function onSubmit(event) {
                 </div>
                 <div class="mobile-message">
                     <textarea v-model="state.message" class="mobile-message-input" placeholder="Write here"/>
+                    <button type="submit" class="mobile-submit">
+                        <img src="../assets/send.png" type="icon">
+                    </button>
                 </div>
             </UForm>
         </ion-content>
@@ -154,7 +160,7 @@ p {
 }
 
 .message-input {
-    width: 1256px;
+    width: 1190px;
     margin-top: 12px;
     background-color: #BFDBDE;
     color: #062F33;
@@ -168,6 +174,17 @@ p {
     opacity: 30%;
 }
 
+.submit {
+    width: 123px;
+    height: 38px;
+    margin-top: 15px;
+    background-color: #062F33;
+    color: white;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
 /*CSS FOR MOBILE*/
 
 .mobile-recipient {
@@ -177,7 +194,7 @@ p {
     width: 100%;
     height: 97px;
     margin-top: 50px;
-    border-radius: 15px;
+    border-top-left-radius: 15px;
 }
 
 .mobile-object {
@@ -187,17 +204,19 @@ p {
     width: 100%;
     height: 97px;
     margin-top: -25px;
-    border-radius: 15px;
+    border-top-left-radius: 15px;
 }
 
 .mobile-message {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     background-color: #BFDBDE;
     width: 100%;
     height: 100vh;
     margin-top: -25px;
-    border-radius: 15px;
+    border-top-left-radius: 15px;
 }
 
 .mobile-underline-input {
@@ -236,6 +255,7 @@ p {
 
 .mobile-message-input {
     width: 370px;
+    height: 550px;
     margin-top: 12px;
     background-color: #BFDBDE;
     color: #062F33;
@@ -247,6 +267,13 @@ p {
 .mobile-message-input::placeholder {
     font-weight: 600;
     opacity: 30%;
+}
+
+.mobile-submit {
+    width: 56px;
+    height: 58px;
+    align-self: flex-end;
+    margin-right: 15px;
 }
 
 </style>
