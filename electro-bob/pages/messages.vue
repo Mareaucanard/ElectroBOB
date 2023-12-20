@@ -86,33 +86,36 @@ async function onSubmit(event) {
 }
 
 .recipient {
-    display: flex;
-    justify-content: space-between;
-    background-color: #7A9597;
     width: 1314px;
     height: 97px;
     margin-top: 100px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #7A9597;
     border-radius: 15px;
+    box-shadow: 0px -4px 10px 0px rgba(0, 0, 0, 0.10);
 }
 
 .object {
+    width: 1314px;
+    height: 97px;
+    margin-top: -25px;
     display: flex;
     justify-content: space-between;
     background-color: #9DB8BB;
-    width: 1314px;
-    height: 97px;
     border-radius: 15px;
-    margin-top: -25px;
+    box-shadow: 0px -4px 10px 0px rgba(0, 0, 0, 0.10);
 }
 
 .message {
+    width: 1314px;
+    height: 100vh;
+    margin-top: -25px;
     display: flex;
     justify-content: center;
     background-color: #BFDBDE;
-    width: 1314px;
-    height: 100vh;
     border-radius: 15px;
-    margin-top: -25px;
+    box-shadow: 0px -4px 10px 0px rgba(0, 0, 0, 0.10);
 }
 
 p {
@@ -195,6 +198,7 @@ p {
     height: 97px;
     margin-top: 50px;
     border-top-left-radius: 15px;
+    box-shadow: 0px -4px 10px 0px rgba(0, 0, 0, 0.10);
 }
 
 .mobile-object {
@@ -205,6 +209,7 @@ p {
     height: 97px;
     margin-top: -25px;
     border-top-left-radius: 15px;
+    box-shadow: 0px -4px 10px 0px rgba(0, 0, 0, 0.10);
 }
 
 .mobile-message {
@@ -217,6 +222,7 @@ p {
     height: 100vh;
     margin-top: -25px;
     border-top-left-radius: 15px;
+    box-shadow: 0px -4px 10px 0px rgba(0, 0, 0, 0.10);
 }
 
 .mobile-underline-input {
