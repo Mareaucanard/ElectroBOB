@@ -1,0 +1,6 @@
+@Eletro_BOB_API_HostAddress = http://localhost:5157
+
+GET {{Eletro_BOB_API_HostAddress}}/
+Accept: application/json
+
+###
