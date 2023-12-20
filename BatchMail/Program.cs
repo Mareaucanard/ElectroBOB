@@ -6,10 +6,9 @@ using System.Net.Mail;
 using System.Net;
 
 Console.WriteLine("Initalisation of the batch");
-try
 {
     DbContextOptions<AreaContext> options = new DbContextOptionsBuilder<AreaContext>()
-        .UseSqlServer("Server=172.31.96.1,1433; Database=AreaDB; User Id=Bob; Password=Bob1234; TrustServerCertificate=True; Persist Security Info=True; Encrypt=False")
+        .UseSqlServer("Server=10.15.190.28,1433; Database=AreaDB; User Id=SA; Password=Bob1234Bob1234; TrustServerCertificate=True; Persist Security Info=True; Encrypt=False; MultiSubnetFailover=True;")
         .Options;
     AreaContext context = new AreaContext(options);
     Console.WriteLine("Context created");

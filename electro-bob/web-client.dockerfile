@@ -8,6 +8,8 @@ RUN yarn add serve
 
 RUN npx nuxi generate
 
-COPY --from=internal/web /var/electroBOB.apk dist/client.apk
+# COPY --from=internal/web /var/electroBOB.apk dist/client.apk
+
+ENV API_URL=API_URL
 
 CMD ["npx", "serve", "dist"]
