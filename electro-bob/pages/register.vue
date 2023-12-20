@@ -25,14 +25,14 @@ async function onSubmit(event) {
             <h1>REGISTER</h1>
             <UForm :ui="{ label: {} }" :validate="validate" :state="state" class="space-y-4 uform" @submit="onSubmit">
                 <UFormGroup name="email">
-                    <Input v-model="state.email" placeholder="user email" class="input"/>
+                    <input v-model="state.email" placeholder="user email" class="input"/>
                 </UFormGroup>
 
                 <UFormGroup name="password">
-                    <Input v-model="state.password" type="password" placeholder="user password" class="input"/>
+                    <input v-model="state.password" type="password" placeholder="user password" class="input"/>
                 </UFormGroup>
                 <UFormGroup name="confirm">
-                    <Input v-model="state.confirm" type="password" placeholder="confirm password" class="input"/>
+                    <input v-model="state.confirm" type="password" placeholder="confirm password" class="input"/>
                 </UFormGroup>
 
                 <UButton type="submit" class="submit">
@@ -47,15 +47,15 @@ async function onSubmit(event) {
             <h1>LOGIN</h1>
             <UForm :ui="{ label: {} }" :validate="validate" :state="state" class="space-y-4 uform" @submit="onSubmit">
                 <UFormGroup name="email">
-                    <Input v-model="state.email" placeholder="user email" class="mobile-input"/>
+                    <input v-model="state.email" placeholder="user email" class="mobile-input"/>
                 </UFormGroup>
 
                 <UFormGroup name="password">
-                    <Input v-model="state.password" type="password" placeholder="user password" class="mobile-input" />
+                    <input v-model="state.password" type="password" placeholder="user password" class="mobile-input" />
                 </UFormGroup>
 
                 <UFormGroup name="confirm">
-                    <Input v-model="state.confirm" type="password" placeholder="confirm password" class="mobile-input"/>
+                    <input v-model="state.confirm" type="password" placeholder="confirm password" class="mobile-input"/>
                 </UFormGroup>
 
                 <UButton type="submit" class="mobile-submit" variant="link">

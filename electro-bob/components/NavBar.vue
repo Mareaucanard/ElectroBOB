@@ -124,8 +124,6 @@ img[type="logo button"]{
 .mobile-nav {
     width: 100%;
     display: flex;
-    justify-content: start;
-    align-items:start;
     background-color: #062F33;
 }
 
