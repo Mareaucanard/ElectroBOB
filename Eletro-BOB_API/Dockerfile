@@ -26,6 +26,6 @@ WORKDIR /app
 COPY --from=publish /app/publish .
 USER root
 RUN apt update
-RUN apt install wget
+RUN apt-get install -y wget
 
 ENTRYPOINT ["bash", "/run.sh"]

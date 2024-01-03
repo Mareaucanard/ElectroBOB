@@ -1,21 +1,21 @@
 services:
-  db:
-    ports:
-      - "1433:1433"
-    build:
-      context: db-init
-    environment:
-      - ACCEPT_EULA=Y
-      - MSSQL_SA_PASSWORD=${MSSQL_SA_PASSWORD}
-    volumes:
-      - db:/var/opt/mssql
-  server:
-    depends_on:
-      - db
-    ports:
-      - "8080:8080"
-    build:
-      context: Eletro-BOB_API
+  # db:
+  #   ports:
+  #     - "1433:1433"
+  #   build:
+  #     context: db-init
+  #   environment:
+  #     - ACCEPT_EULA=Y
+  #     - MSSQL_SA_PASSWORD=${MSSQL_SA_PASSWORD}
+  #   volumes:
+  #     - db:/var/opt/mssql
+  # server:
+  #   depends_on:
+  #     - db
+  #   ports:
+  #     - "8080:8080"
+  #   build:
+  #     context: Eletro-BOB_API
   generate-mobile-app:
     build:
       context: electro-bob
@@ -26,7 +26,6 @@ services:
   web:
     depends_on:
       - generate-mobile-app
-      - server
     build:
       context: electro-bob
       dockerfile: web-client.dockerfile

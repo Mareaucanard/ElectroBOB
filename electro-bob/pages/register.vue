@@ -15,7 +15,7 @@ const validate = (state) => {
 
 async function onSubmit(event) {
     const { email, password } = event.data
-    const API_URL = "http://localhost:8080/api/Register"
+    const API_URL = "https://172.31.96.1:32774/api/Register"
     try {
         const response = await $fetch(API_URL,
             {
