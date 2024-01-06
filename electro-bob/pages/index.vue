@@ -1,4 +1,11 @@
+<template>
+    <div>Home Page</div>
+</template>
+<script lang="ts" setup>
+    
+</script>
 
+<!-- 
 <template>
     <ion-page>
         <ion-content :fullscreen="true">
@@ -33,4 +40,4 @@
     width: 100px;
     align-items: center;
 }
-</style>
+</style> -->

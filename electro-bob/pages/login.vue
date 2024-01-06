@@ -1,78 +1,91 @@
-<script setup>
+<script lang="ts" setup>
+import { storeToRefs } from 'pinia'; // import storeToRefs helper hook from pinia
+import { useAuthStore } from '../store/auth'; // import the auth store we just created
 
-const state = reactive({
-    email: undefined,
-    password: undefined
-})
+definePageMeta({
+        layout: false
+    })
 
-const validate = (state) => {
-    const errors = []
-    if (!state.email) errors.push({ path: 'email', message: 'Required' })
-    if (!state.password) errors.push({ path: 'password', message: 'Required' })
-    return errors
-}
+const { authenticateUser } = useAuthStore(); // use authenticateUser action from  auth store
 
-async function onSubmit(event) {
-    console.log(event.data)
-}
+const { authenticated } = storeToRefs(useAuthStore()); // make authenticated state reactive with storeToRefs
 
+const user = ref({
+  username: 'kminchelle',
+  password: '0lelplR',
+});
+const router = useRouter();
+
+const login = async () => {
+  await authenticateUser(user.value); // call authenticateUser and pass the user object
+  // redirect to homepage if user is authenticated
+  if (authenticated) {
+    router.push('/about');
+  }
+};
 </script>
 
 <template>
-    <ion-page v-if="$device.isDesktop">
-        <ion-content :fullscreen="true">
-            <div class="hello">
-                <div class="modal">
-                    <img src="../assets/ElectroBob 1.png" type="logo">
-                    <h1>LOGIN</h1>
-                    <UForm :ui="{ label: {} }" :validate="validate" :state="state" class="space-y-4 uform" @submit="onSubmit">
-                        <UFormGroup name="email">
-                            <input v-model="state.email" placeholder="user email" class="input"/>
-                        </UFormGroup>
-
-                        <UFormGroup name="password">
-                            <input v-model="state.password" type="password" placeholder="user password" class="input" />
-                        </UFormGroup>
-
-                        <UButton type="submit" class="submit">
-                            <img src="../assets/submit button.png" type="submit"/>
-                        </UButton>
-                    </UForm>
-                    <a class="register" href="/register">
-                        register
-                    </a>
-                </div>
-            </div>
-        </ion-content>
-    </ion-page>
-    <ion-page v-else>
-        <div class="hello">
-            <div class="mobile-modal">
-                <img src="../assets/ElectroBob 1.png" type="logo">
-                <h1>LOGIN</h1>
-                <UForm :ui="{ label: {} }" :validate="validate" :state="state" class="space-y-4 uform" @submit="onSubmit">
-                    <UFormGroup name="email">
-                        <input v-model="state.email" placeholder="user email" class="mobile-input"/>
-                    </UFormGroup>
-
-                    <UFormGroup name="password">
-                        <input v-model="state.password" type="password" placeholder="user password" class="mobile-input" />
-                    </UFormGroup>
-
-                    <UButton type="submit" class="mobile-submit" variant="link">
-                        <img src="../assets/submit button.png" type="mobile-submit"/>
-                    </UButton>
-                </UForm>
-                <a class="mobile-register" href="/register">
-                    register
-                </a>
-            </div>
+  <div class="base" v-if="$device.isDesktop">
+    <div class="modal">
+      <img src="../assets/ElectroBob 1.png" type="logo">
+      <h1>LOGIN</h1>
+      <div class="uform">
+        <input
+          v-model="user.username"
+          type="text"
+          class="input"
+          placeholder="user email"
+          name="uname"
+          required
+        />
+        <input
+          v-model="user.password"
+          type="password"
+          class="input"
+          placeholder="user password"
+          name="psw"
+          required
+        />
+        <button @click.prevent="login" class="submit">
+            <img src="../assets/submit button.png" type="submit" />
+        </button>
+      </div>
+      <a class="register" href="/register">register</a>
+    </div>
+  </div>
+  <div v-else class="base">
+    <div class="mobile-modal">
+        <img src="../assets/ElectroBob 1.png" type="logo">
+        <h1>LOGIN</h1>
+        <div class="mobile-uform">
+          <input
+            v-model="user.username"
+            type="text"
+            class="mobile-input"
+            placeholder="user email"
+            name="uname"
+            required
+          />
+          <input
+            v-model="user.password"
+            type="password"
+            class="mobile-input"
+            placeholder="user password"
+            name="psw"
+            required
+          />
+          <button @click.prevent="login" class="mobile-submit">
+              <img src="../assets/submit button.png" type="submit" />
+          </button>
         </div>
-    </ion-page>
+        <a class="mobile-register" href="/register">register</a>
+      </div>
+  </div>
 </template>
 
 <style>
-.hello {
+.base {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -154,6 +167,15 @@ img[type=submit] {
     flex-direction: column;
     background-color: #062f337c;
     border-radius: 15px;
+}
+
+.mobile-uform {
+    margin-bottom: -40px;
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .mobile-input {
