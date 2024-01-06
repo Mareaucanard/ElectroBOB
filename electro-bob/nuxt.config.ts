@@ -20,7 +20,6 @@ export default defineNuxtConfig({
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '~/assets/styles/main.scss',
-    '~/assets/css/ionic.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -39,9 +38,9 @@ export default defineNuxtConfig({
 
   modules: [
     '@nuxt/ui',
-    "@nuxtjs/ionic",
     "@nuxtjs/device",
-    '@sidebase/nuxt-auth'
+    '@sidebase/nuxt-auth',
+    '@pinia/nuxt',
   ],
 
   auth: { provider: { type: 'authjs' } },
