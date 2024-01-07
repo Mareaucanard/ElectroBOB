@@ -1,26 +1,12 @@
-<template>
-    <div>Home Page</div>
-</template>
-<script lang="ts" setup>
-    
-</script>
 
-<!-- 
 <template>
-    <ion-page>
-        <ion-content :fullscreen="true">
-           <NavBar/>
-            <div id="container">
-                <div class="buttonWrapper">
-                    <div class="hello">
-                        <UButton to="/login" block>Login</UButton>
-                        <div class="spacing" />
-                        <UButton to="/register" block>Register</UButton>
-                    </div>
-                </div>
+    <div id="container">
+        <div class="buttonWrapper">
+            <div class="base">
+                <h1>WELCOME</h1>
             </div>
-        </ion-content>
-    </ion-page>
+        </div>
+    </div>
 </template>
 
 <style>
@@ -34,10 +20,10 @@
     height: 20px;
 }
 
-.hello {
+.base {
     flex-direction: column;
     display: flex;
     width: 100px;
     align-items: center;
 }
-</style> -->
+</style>
