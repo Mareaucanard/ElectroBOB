@@ -26,7 +26,8 @@ const login = async () => {
 </script>
 
 <template>
-  <div class="base" v-if="$device.isDesktop">
+  <div class="background" v-if="$device.isDesktop">
+    <div class="base">
     <div class="modal">
       <img src="../assets/ElectroBob 1.png" type="logo">
       <h1>LOGIN</h1>
@@ -54,7 +55,9 @@ const login = async () => {
       <a class="register" href="/register">register</a>
     </div>
   </div>
-  <div v-else class="base">
+  </div>
+  <div v-else class="background">
+    <div class="base">
     <div class="mobile-modal">
         <img src="../assets/ElectroBob 1.png" type="logo">
         <h1>LOGIN</h1>
@@ -81,27 +84,36 @@ const login = async () => {
         </div>
         <a class="mobile-register" href="/register">register</a>
       </div>
+    </div>
   </div>
 </template>
 
 <style>
+.background {
+  background-color: #BFDBDE;
+  height: 100vh;
+  margin-top: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .base {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-self: center;
-    margin-top: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
 }
 
 .modal {
-    width: 570px;
-    height: 437px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: column;
-    background-color: #062F33;
-    border-radius: 15px;
+  width: 570px;
+  height: 437px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  background-color: #062F33;
+  border-radius: 15px;
 }
 
 .uform {

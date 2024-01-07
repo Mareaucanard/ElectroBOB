@@ -19,54 +19,48 @@ async function onSubmit(event) {
 </script>
 
 <template>
-    <ion-page v-if="$device.isDesktop">
-        <ion-content :fullscreen="true">
-            <NavBar/>
-            <UForm class="message-page" :validate="validate" :state="state" @submit="onSubmit">
-                <div class="recipient">
-                    <p>New message to:</p>
-                    <div class="underline-input">
-                        <input v-model="state.recipient" class="recipient-input">
-                        <div class="underline"/>
-                    </div>
+    <div v-if="$device.isDesktop">
+        <UForm class="message-page" :validate="validate" :state="state" @submit="onSubmit">
+            <div class="recipient">
+                <p>New message to:</p>
+                <div class="underline-input">
+                    <input v-model="state.recipient" class="recipient-input">
+                    <div class="underline"/>
                 </div>
-                <div class="object">
-                    <p>Object:</p>
-                    <div class="underline-input">
-                        <input v-model="state.object" class="object-input">
-                        <div class="underline"/>
-                    </div>
+            </div>
+            <div class="object">
+                <p>Object:</p>
+                <div class="underline-input">
+                    <input v-model="state.object" class="object-input">
+                    <div class="underline"/>
                 </div>
-                <div class="message">
-                    <textarea v-model="state.message" class="message-input" placeholder="Write here"/>
+            </div>
+            <div class="message">
+                <textarea v-model="state.message" class="message-input" placeholder="Write here"/>
+            </div>
+        </UForm>
+    </div>
+    <div v-else>
+        <UForm class="message-page" :validate="validate" :state="state" @submit="onSubmit">
+            <div class="mobile-recipient">
+                <p>To:</p>
+                <div class="mobile-underline-input">
+                    <input v-model="state.recipient" class="mobile-recipient-input">
+                    <div class="mobile-underline"/>
                 </div>
-            </UForm>
-        </ion-content>
-    </ion-page>
-    <ion-page v-else>
-        <ion-content :fullscreen="true">
-            <NavBar/>
-            <UForm class="message-page" :validate="validate" :state="state" @submit="onSubmit">
-                <div class="mobile-recipient">
-                    <p>To:</p>
-                    <div class="mobile-underline-input">
-                        <input v-model="state.recipient" class="mobile-recipient-input">
-                        <div class="mobile-underline"/>
-                    </div>
+            </div>
+            <div class="mobile-object">
+                <p>Object:</p>
+                <div class="mobile-underline-input">
+                    <input v-model="state.object" class="mobile-object-input">
+                    <div class="mobile-underline"/>
                 </div>
-                <div class="mobile-object">
-                    <p>Object:</p>
-                    <div class="mobile-underline-input">
-                        <input v-model="state.object" class="mobile-object-input">
-                        <div class="mobile-underline"/>
-                    </div>
-                </div>
-                <div class="mobile-message">
-                    <textarea v-model="state.message" class="mobile-message-input" placeholder="Write here"/>
-                </div>
-            </UForm>
-        </ion-content>
-    </ion-page>
+            </div>
+            <div class="mobile-message">
+                <textarea v-model="state.message" class="mobile-message-input" placeholder="Write here"/>
+            </div>
+        </UForm>
+    </div>
 </template>
 
 <style>

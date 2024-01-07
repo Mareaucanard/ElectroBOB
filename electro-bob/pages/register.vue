@@ -61,74 +61,99 @@ const register = async () => {
 </script>
 
 <template>
-    <div class="hello" v-if="$device.isDesktop">
-        <div class="modal">
-            <img src="../assets/ElectroBob 1.png" type="logo">
-            <h1>REGISTER</h1>
-            <div class="uform">
-                <input
-                  v-model="user.username"
-                  type="text"
-                  class="input"
-                  placeholder="user email"
-                  name="uname"
-                  required
-                />
-                <input
-                  v-model="user.password"
-                  type="password"
-                  class="input"
-                  placeholder="user password"
-                  name="psw"
-                  required
-                />
-                <input
-                  v-model="user.confirm"
-                  type="password"
-                  class="input"
-                  placeholder="confirm password"
-                  name="psw"
-                  required
-                />
+    <div class="background" v-if="$device.isDesktop">
+        <div class="base">
+            <div class="modal">
+                <img src="../assets/ElectroBob 1.png" type="logo">
+                <h1>REGISTER</h1>
+                <div class="uform">
+                    <input
+                      v-model="user.username"
+                      type="text"
+                      class="input"
+                      placeholder="user email"
+                      name="uname"
+                      required
+                    />
+                    <input
+                      v-model="user.password"
+                      type="password"
+                      class="input"
+                      placeholder="user password"
+                      name="psw"
+                      required
+                    />
+                    <input
+                      v-model="user.confirm"
+                      type="password"
+                      class="input"
+                      placeholder="confirm password"
+                      name="psw"
+                      required
+                    />
 
-                <button @click.prevent="register" class="submit">
-                    <img src="../assets/submit button.png" type="submit" />
-                </button>
+                    <button @click.prevent="register" class="submit">
+                        <img src="../assets/submit button.png" type="submit" />
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-    <div class="hello" v-else>
-        <div class="mobile-modal">
-            <img src="../assets/ElectroBob 1.png" type="logo">
-            <h1>LOGIN</h1>
-            <UForm :ui="{ label: {} }" :validate="validate" :state="state" class="space-y-4 uform" @submit="onSubmit">
-                <UFormGroup name="email">
-                    <input v-model="state.email" placeholder="user email" class="mobile-input" />
-                </UFormGroup>
-
-                <UFormGroup name="password">
-                    <input v-model="state.password" type="password" placeholder="user password" class="mobile-input" />
-                </UFormGroup>
-
-                <UFormGroup name="confirm">
-                    <input v-model="state.confirm" type="password" placeholder="confirm password" class="mobile-input" />
-                </UFormGroup>
-
-                <UButton type="submit" class="mobile-submit" variant="link">
-                    <img src="../assets/submit button.png" type="mobile-submit" />
-                </UButton>
-            </UForm>
+    <div v-else class="background">
+        <div class="base">
+            <div class="mobile-modal">
+                <img src="../assets/ElectroBob 1.png" type="logo">
+                <h1>LOGIN</h1>
+                <div class="mobile-uform">
+                  <input
+                    v-model="user.username"
+                    type="text"
+                    class="mobile-input"
+                    placeholder="user email"
+                    name="uname"
+                    required
+                  />
+                  <input
+                    v-model="user.password"
+                    type="password"
+                    class="mobile-input"
+                    placeholder="user password"
+                    name="psw"
+                    required
+                  />
+                  <input
+                      v-model="user.confirm"
+                      type="password"
+                      class="mobile-input"
+                      placeholder="confirm password"
+                      name="psw"
+                      required
+                    />
+                  <button @click.prevent="login" class="mobile-submit">
+                      <img src="../assets/submit button.png" type="submit" />
+                  </button>
+                </div>
+                <a class="mobile-register" href="/register">register</a>
+            </div>
         </div>
     </div>
 </template>
 
 <style>
-.hello {
+.background {
+    background-color: #BFDBDE;
+    height: 100vh;
+    margin-top: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.base {
     display: flex;
     justify-content: center;
     align-items: center;
     align-self: center;
-    margin-top: 200px;
 }
 
 .modal {
@@ -193,8 +218,17 @@ img[type=submit] {
     border-radius: 15px;
 }
 
+.mobile-uform {
+    margin-bottom: -40px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .mobile-input {
-    width: 210px;
+    width: 230px;
     height: 49px;
     background-color: white;
     border-radius: 15px;

@@ -1,25 +1,9 @@
 <template>
-    <div>
-      <header>
-        <ul>
-          <li><nuxt-link to="/">Home</nuxt-link></li>
-          <li><nuxt-link to="/about">About</nuxt-link></li>
-          <li v-if="!authenticated" class="loginBtn" style="float: right">
-            <nuxt-link to="/login">Login</nuxt-link>
-          </li>
-          <li v-if="authenticated" class="loginBtn" style="float: right">
-            <nuxt-link @click="logout">Logout</nuxt-link>
-          </li>
-        </ul>
-      </header>
-      <div class="mainContent">
-        <slot />
-      </div>
-      <footer>
-        <h1>Footer</h1>
-      </footer>
-    </div>
-  </template>
+<NavBar/>
+<div>
+  <slot />
+</div>
+</template>
 
 <script lang="ts" setup>
 import { storeToRefs } from 'pinia';
@@ -35,4 +19,11 @@ const logout = () => {
   router.push('/login');
 };
 </script>
+
+<style>
+body {
+  background-color: #7A9597;
+}
+
+</style>
 
