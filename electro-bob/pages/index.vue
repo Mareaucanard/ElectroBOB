@@ -1,20 +1,30 @@
 
 <template>
-    <ion-page>
-        <ion-content :fullscreen="true">
-           <NavBar/>
-            <div id="container">
-                <div class="buttonWrapper">
-                    <div class="hello">
-                        <UButton to="/login" block>Login</UButton>
-                        <div class="spacing" />
-                        <UButton to="/register" block>Register</UButton>
-                    </div>
-                </div>
+    <div id="container">
+        <div class="buttonWrapper">
+            <div class="base">
+                <h1>WELCOME</h1>
+                <h2> {{result}} </h2>
             </div>
-        </ion-content>
-    </ion-page>
+        </div>
+    </div>
 </template>
+
+<script lang="ts" setup>
+const result = ref('');
+const url = 'https://v2.jokeapi.dev/joke/Any?format=txt&lang=fr&blacklistFlags=nsfw';
+const options = {
+	method: 'GET',
+};
+
+try {
+	const response = await fetch(url, options);
+	result.value = await response.text();
+	console.log(result);
+} catch (error) {
+	console.error(error);
+}
+</script>
 
 <style>
 .buttonWrapper {
@@ -27,7 +37,7 @@
     height: 20px;
 }
 
-.hello {
+.base {
     flex-direction: column;
     display: flex;
     width: 100px;
