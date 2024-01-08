@@ -4,13 +4,13 @@ declare repo_version=$(if command -v lsb_release &> /dev/null; then lsb_release 
 wget https://packages.microsoft.com/config/ubuntu/14.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 
 # Install Microsoft signing key and repository
-sudo dpkg -i packages-microsoft-prod.deb
+dpkg -i packages-microsoft-prod.deb
 
 # Clean up
 rm packages-microsoft-prod.deb
 
 # Update packages
-sudo apt update
+apt update
 
 
 dotnet Eletro-BOB_API.dll

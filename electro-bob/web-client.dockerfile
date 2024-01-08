@@ -1,9 +1,9 @@
 FROM node:21-alpine
 
-COPY . /web-client
-WORKDIR /web-client
+COPY . /electro-bob
+WORKDIR /electro-bob
 
-RUN yarn
+RUN yarn install
 RUN yarn add serve
 
 RUN npx nuxi generate

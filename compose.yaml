@@ -31,7 +31,7 @@ services:
       context: electro-bob
       dockerfile: web-client.dockerfile
     ports:
-      - "8081:3000"
+      - "3000:3000"
     volumes:
       - client:/var/client/
     environment:
