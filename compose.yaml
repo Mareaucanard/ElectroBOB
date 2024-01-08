@@ -35,6 +35,7 @@ services:
       - client:/var/client/
     environment:
       - API_URL=${API_URL}
+      - AUTH_ORIGIN=/electro-bob
 
 volumes:
   client:
