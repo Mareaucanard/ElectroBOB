@@ -10,6 +10,6 @@ namespace Eletro_BOB_API.Classes
         public bool IsActive { get; set; }
         public int UsersId { get; set; }
         public ActionBasic action { get; set; }
-        public ReactionBasic[] reactions { get; set; }
+        public List<ReactionBasic> reactions { get; set; }
     }
 }
