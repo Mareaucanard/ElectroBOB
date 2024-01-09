@@ -2,7 +2,7 @@
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 COPY ./run.sh /run.sh
-USER app
+USER root
 WORKDIR /app
 ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
 EXPOSE 8080
@@ -26,6 +26,7 @@ WORKDIR /app
 COPY --from=publish /app/publish .
 USER root
 RUN apt update
-RUN apt-get install -y wget
+RUN apt install wget -y
+
 
 ENTRYPOINT ["bash", "/run.sh"]

@@ -30,11 +30,12 @@ services:
       context: electro-bob
       dockerfile: web-client.dockerfile
     ports:
-      - "8081:3000"
+      - "3000:3000"
     volumes:
       - client:/var/client/
     environment:
       - API_URL=${API_URL}
+      - AUTH_ORIGIN=/electro-bob
 
 volumes:
   client:
