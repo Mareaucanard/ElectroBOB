@@ -41,6 +41,7 @@ export default defineNuxtConfig({
     "@nuxtjs/device",
     '@sidebase/nuxt-auth',
     '@pinia/nuxt',
+    "@pinia-plugin-persistedstate/nuxt",
   ],
 
   auth: { provider: { type: 'authjs' } },
