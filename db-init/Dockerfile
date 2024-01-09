@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/mssql/server:2022-latest
+FROM mariadb:latest
 
 WORKDIR /usr/src/app
 COPY . /usr/src/app
@@ -6,4 +6,4 @@ COPY . /usr/src/app
 EXPOSE 1433
 
 
-CMD ["/bin/bash",  "./entrypoint.sh"]
+CMD ["/bin/bash",  "./init.sh"]
