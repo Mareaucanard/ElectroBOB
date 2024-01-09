@@ -6,6 +6,7 @@ using Microsoft.Data.SqlClient;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +17,7 @@ IConfigurationRoot configuration = new ConfigurationBuilder()
         .Build();
 
 builder.Services.AddControllers();
-builder.Services.AddDbContext<AreaContext>(opt => opt.UseSqlServer(configuration.GetConnectionString("AreaDataBase")));
+builder.Services.AddDbContextPool<AreaContext>(opt => opt.UseMySql(configuration.GetConnectionString("AreaDataBase"), ServerVersion.AutoDetect(configuration.GetConnectionString("AreaDataBase"))));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddAuthentication(options =>
 {
