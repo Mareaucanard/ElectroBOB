@@ -9,7 +9,7 @@ const isOpen = ref(false)
                 <img src="../assets/profile.png" type="icon">
             </UButton>
             <div class="line"/>
-            <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-full' }" type="icon">
+            <UButton class="UButton" to="/settings" :ui="{ rounded: 'rounded-full' }" type="icon">
                 <img src="../assets/parameter.png" type="icon">
             </UButton>
             <div class="line"/>
@@ -124,7 +124,6 @@ img[type="logo button"]{
 .mobile-nav {
     width: 100%;
     display: flex;
-    background-color: #062F33;
 }
 
 .slider {
