@@ -1,14 +1,14 @@
 services:
   db:
+    image: mariadb:latest
     ports:
-      - "1433:1433"
-    build:
-      context: db-init
+      - "3306:3306"
     environment:
-      - ACCEPT_EULA=Y
-      - MSSQL_SA_PASSWORD=${MSSQL_SA_PASSWORD}
+      - MARIADB_ROOT_PASSWORD=${MARIADB_ROOT_PASSWORD}
+      - MARIADB_DATABASE=AreaDB
     volumes:
       - db:/var/opt/mssql
+      - /backup-volume:/backup
   server:
     depends_on:
       - db
@@ -26,7 +26,6 @@ services:
   web:
     depends_on:
       - generate-mobile-app
-      - server
     build:
       context: electro-bob
       dockerfile: web-client.dockerfile
