@@ -5,7 +5,7 @@ const isOpen = ref(false)
 <template>
     <nav v-if="$device.isDesktop">
         <div class="start-bar">
-            <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-full' }" type="icon">
+            <UButton class="UButton" to="/user" :ui="{ rounded: 'rounded-full' }" type="icon">
                 <img src="../assets/profile.png" type="icon">
             </UButton>
             <div class="line"/>
@@ -41,7 +41,7 @@ const isOpen = ref(false)
                 <button @click="isOpen = false" class="inside-toggel-button">
                   <img src="../assets/ElectroBob 1.png" type="">
                 </button>
-                <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-full' }" type="icon">
+                <UButton class="UButton" to="/user" :ui="{ rounded: 'rounded-full' }" type="icon">
                     <img src="../assets/profile.png" type="icon">
                 </UButton>
                 <UButton class="UButton" to="/settings" :ui="{ rounded: 'rounded-full' }" type="icon">

@@ -9,6 +9,8 @@ export const useAuthStore = defineStore('auth', {
   state: () => ({
     authenticated: false,
     loading: false,
+    email: '',
+    password: '',
   }),
   actions: {
     async authenticateUser({ username, password }: UserPayloadInterface) {
@@ -23,6 +25,8 @@ export const useAuthStore = defineStore('auth', {
       this.loading = pending;
 
       if (data.value) {
+        this.email = data.value.email;
+        this.password = data.value.username;
         const token = useCookie('token');
         token.value = data?.value?.token;
         this.authenticated = true;
@@ -33,5 +37,8 @@ export const useAuthStore = defineStore('auth', {
       this.authenticated = false;
       token.value = null;
     },
+  },
+  persist: {
+    storage: persistedState.localStorage,
   },
 });
