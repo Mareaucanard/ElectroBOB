@@ -124,6 +124,7 @@ h1 {
 .label {
     display: flex;
     font-size: 25px;
+    font-weight: 600;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -156,6 +157,7 @@ h1 {
     flex-direction: row;
     justify-content: space-between;
     font-size: 20px;
+    font-weight: 500;
 }
 
 input[type="checkbox"] {
