@@ -89,6 +89,11 @@ const login = async () => {
 </template>
 
 <style>
+body {
+  font-family:'LeagueSpartan';
+  font-size: 30px;
+}
+
 .background {
   background-color: #BFDBDE;
   height: 100vh;
@@ -128,9 +133,9 @@ const login = async () => {
 .input {
     width: 319px;
     height: 49px;
-    background-color: white;
+    background-color: #BFDBDE;
     border-radius: 15px;
-    color: black;
+    color: #062F33;
     text-align: center;
     font-size: 25px;
     font-weight: 500;
@@ -142,16 +147,16 @@ const login = async () => {
     height: 38px;
     margin-left: 400px;
     margin-bottom: -10px;
-    background-color: white;
+    background-color: #BFDBDE;
     border-radius: 15px;
-    color: black;
+    color: #062F33;
     text-align: center;
     font-size: 25px;
     font-weight: 500;
 }
 
 h1 {
-    color: white;
+    color: #BFDBDE;
     font-size: 45px;
 }
 
@@ -193,9 +198,9 @@ img[type=submit] {
 .mobile-input {
     width: 210px;
     height: 49px;
-    background-color: white;
+    background-color: #BFDBDE;
     border-radius: 15px;
-    color: black;
+    color: #062F33;
     text-align: center;
     font-size: 25px;
     font-weight: 500;
@@ -213,9 +218,9 @@ img[type=submit] {
     height: 38px;
     margin-left: 200px;
     margin-bottom: -35px;
-    background-color: white;
+    background-color: #BFDBDE;
     border-radius: 15px;
-    color: black;
+    color: #062F33;
     text-align: center;
     font-size: 25px;
     font-weight: 500;
