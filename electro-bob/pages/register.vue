@@ -103,7 +103,7 @@ const register = async () => {
         <div class="base">
             <div class="mobile-modal">
                 <img src="../assets/ElectroBob 1.png" type="logo">
-                <h1>LOGIN</h1>
+                <h1>REGISTER</h1>
                 <div class="mobile-uform">
                   <input
                     v-model="user.username"
@@ -140,6 +140,11 @@ const register = async () => {
 </template>
 
 <style>
+body {
+    font-family:'LeagueSpartan';
+    font-size: 30px;
+  }
+
 .background {
     background-color: #BFDBDE;
     height: 100vh;
@@ -178,9 +183,9 @@ const register = async () => {
 .input {
     width: 319px;
     height: 49px;
-    background-color: white;
+    background-color: #BFDBDE;
     border-radius: 15px;
-    color: black;
+    color: #062F33;
     text-align: center;
     font-size: 25px;
     font-weight: 500;
@@ -188,7 +193,7 @@ const register = async () => {
 }
 
 h1 {
-    color: white;
+    color: #BFDBDE;
     font-size: 45px;
 }
 
@@ -230,9 +235,9 @@ img[type=submit] {
 .mobile-input {
     width: 230px;
     height: 49px;
-    background-color: white;
+    background-color: #BFDBDE;
     border-radius: 15px;
-    color: black;
+    color: #062F33;
     text-align: center;
     font-size: 25px;
     font-weight: 500;
@@ -250,9 +255,9 @@ img[type=submit] {
     height: 38px;
     margin-left: 200px;
     margin-bottom: -35px;
-    background-color: white;
+    background-color: #BFDBDE;
     border-radius: 15px;
-    color: black;
+    color: #062F33;
     text-align: center;
     font-size: 25px;
     font-weight: 500;
