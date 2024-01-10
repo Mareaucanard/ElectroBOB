@@ -22,7 +22,7 @@ const logout = () => {
 
 <style>
 body {
-  background-color: #7A9597;
+  background-color: #062F33;
 }
 
 </style>

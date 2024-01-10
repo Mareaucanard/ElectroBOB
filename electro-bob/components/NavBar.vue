@@ -44,7 +44,7 @@ const isOpen = ref(false)
                 <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-full' }" type="icon">
                     <img src="../assets/profile.png" type="icon">
                 </UButton>
-                <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-full' }" type="icon">
+                <UButton class="UButton" to="/settings" :ui="{ rounded: 'rounded-full' }" type="icon">
                     <img src="../assets/parameter.png" type="icon">
                 </UButton>
                 <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-full' }" type="icon">

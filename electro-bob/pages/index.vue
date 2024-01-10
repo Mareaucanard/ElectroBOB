@@ -1,28 +1,28 @@
 
 <template>
-    <div v-if="$device.isDesktop" class="base">
+    <div v-if="$device.isDesktop" class="base desktop">
         <svg width="466" height="51" viewBox="0 0 466 51" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0.5 51C76.6202 51 227.991 41.0318 231.44 1.38656C231.426 0.913066 231.447 0.450564 231.5 0C231.5 0.466173 231.48 0.928351 231.44 1.38656C231.942 18.7784 278.699 51 466 51H0.5Z" fill="#BFDBDE"/>
           </svg>
         <div class="joke">
-            <div v-if="getPartJoke() != 0">
+            <div class="text" v-if="getPartJoke() != 0">
                 <h2 v-if="joke.length === 2"> {{ joke[0] }} <br><br><br> {{joke[1]}}</h2>
             </div>
-            <div v-if="getPartJoke() != 0">
-                <h2 v-if="joke.length === 1"> {{joke}}</h2>
+            <div class="text" v-if="getPartJoke() != 0">
+                <h2 v-if="joke.length != 2"> {{joke}}</h2>
             </div>
         </div>
     </div>
     <div v-else class="base">
-        <svg width="466" height="51" viewBox="0 0 466 51" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0.5 51C76.6202 51 227.991 41.0318 231.44 1.38656C231.426 0.913066 231.447 0.450564 231.5 0C231.5 0.466173 231.48 0.928351 231.44 1.38656C231.942 18.7784 278.699 51 466 51H0.5Z" fill="#BFDBDE"/>
-          </svg>
-        <div class="joke">
-            <div v-if="getPartJoke() != 0">
+        <svg width="346" height="115" viewBox="0 0 466 53" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.981567 104.229C57.767 104.229 36.166 61.0137 36.0009 1.18543C35.9871 0.952732 35.9868 0.724224 36 0.5C36 0.728717 36.0003 0.957194 36.0009 1.18543C37.5331 26.9767 204.427 104.229 345.585 104.229H0.981567Z" fill="#BFDBDE"/>
+        </svg>
+        <div class="mobile-joke">
+            <div class="mobile-text" v-if="getPartJoke() != 0">
                 <h2 v-if="joke.length === 2"> {{ joke[0] }} <br><br><br> {{joke[1]}}</h2>
             </div>
-            <div v-if="getPartJoke() != 0">
-                <h2 v-if="joke.length === 1"> {{joke}}</h2>
+            <div class="mobile-text" v-if="getPartJoke() != 0">
+                <h2 v-if="joke.length != 2"> {{joke}}</h2>
             </div>
         </div>
     </div>
@@ -43,18 +43,16 @@ const options = {
 try {
 	const response = await fetch(url, options);
 	result.value = await response.json();
-    console.log(result.value)
 } catch (error) {
     console.error(error);
 }
 
 function getPartJoke() {
     if (result.value.type === 'twopart') {
-        console.log(result.value.setup);
         const fisrt = result.value.setup;
         const delivery = result.value.delivery;
         joke.value = [fisrt,delivery]
-    } else {
+    } if (result.value.type === 'single') {
         joke.value = result.value.joke;
     }
     return joke;
@@ -63,20 +61,21 @@ function getPartJoke() {
 
 <style>
 .base {
-    margin-top: 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-
+.desktop {
+    margin-top: 60px;
+}
 .joke {
     display: flex;
+    flex-direction:column;
     justify-content: center;
     align-items: center;
     width: 540px;
     height: 250px;
-    flex-shrink: 0;
     border-radius: 25px;
     background: #BFDBDE;
 }
@@ -96,4 +95,25 @@ function getPartJoke() {
 h2 {
     color: #062F33;
 }
+
+.text {
+    display: flex;
+    width: 470px;
+}
+
+.mobile-joke {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    width: 440px;
+    height: 350px;
+    background: #BFDBDE;
+}
+
+.mobile-text {
+    display: flex;
+    width: 340px;
+}
+
 </style>
