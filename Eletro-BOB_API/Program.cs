@@ -17,7 +17,7 @@ IConfigurationRoot configuration = new ConfigurationBuilder()
         .Build();
 
 builder.Services.AddControllers();
-builder.Services.AddDbContextPool<AreaContext>(opt => opt.UseMySql(configuration.GetConnectionString("AreaDataBase"), ServerVersion.AutoDetect(configuration.GetConnectionString("AreaDataBase"))));
+builder.Services.AddDbContextPool<AreaContext>(opt => opt.UseMySql(configuration.GetConnectionString("AreaDataBase"), ServerVersion.Create(new Version(11, 3, 1), ServerType.MySql)));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddAuthentication(options =>
 {
