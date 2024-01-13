@@ -6,7 +6,7 @@
           </svg>
         <div class="joke">
             <div class="text" v-if="getPartJoke() != 0">
-                <h2 v-if="joke.length === 2"> {{ joke[0] }} <br><br><br> {{joke[1]}}</h2>
+                <h2 v-if="joke.length === 2"> {{ joke[0] }} <br><br> {{joke[1]}}</h2>
             </div>
             <div class="text" v-if="getPartJoke() != 0">
                 <h2 v-if="joke.length != 2"> {{joke}}</h2>

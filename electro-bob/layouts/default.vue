@@ -23,6 +23,8 @@ const logout = () => {
 <style>
 body {
   background-color: #062F33;
+  font-family:'LeagueSpartan';
+  font-size: 30px;
 }
 
 </style>

@@ -101,7 +101,6 @@ const saveSettings = () => {
 </script>
 
 <style scoped>
-
 .settings {
     width: 550px;
     height: 550px;
@@ -116,6 +115,8 @@ const saveSettings = () => {
 }
 
 h1 {
+    font-family:'LeagueSpartan';
+    font-weight: 600;
     color: #062F33;
     font-size: 45px;
 }
@@ -123,6 +124,7 @@ h1 {
 .label {
     display: flex;
     font-size: 25px;
+    font-weight: 600;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -143,6 +145,7 @@ h1 {
     color: #BFDBDE;
     border-radius: 15px;
     width: 150px;
+    height: 30px;
     text-align: center;
     cursor: pointer;
     font-size: 20px;
@@ -154,6 +157,7 @@ h1 {
     flex-direction: row;
     justify-content: space-between;
     font-size: 20px;
+    font-weight: 500;
 }
 
 input[type="checkbox"] {
