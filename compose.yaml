@@ -1,19 +1,22 @@
 services:
-  db:
-    image: mariadb:latest
-    ports:
-      - "3306:3306"
+  AreaDB:
+    image: mariadb:11.3.1-rc
+    container_name: AreaDB
     environment:
       - MARIADB_ROOT_PASSWORD=${MARIADB_ROOT_PASSWORD}
+      - MARIADB_USER=Bob
+      - MARIADB_PASSWORD=temp
       - MARIADB_DATABASE=AreaDB
     volumes:
-      - db:/var/opt/mssql
-      - /backup-volume:/backup
+      - ./backup-volume:/backup
+      - ./db-init:/docker-entrypoint-initdb.d
   server:
     depends_on:
-      - db
+      - AreaDB
     ports:
-      - "8080:8080"
+      - "8080:80"
+    environment:
+      - MARIADB_PASSWORD=temp
     build:
       context: Eletro-BOB_API
   generate-mobile-app:
@@ -39,4 +42,4 @@ services:
 
 volumes:
   client:
-  db:
+  AreaDB:

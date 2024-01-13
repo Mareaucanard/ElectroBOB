@@ -7,14 +7,19 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using static System.Net.WebRequestMethods;
 using System.Security.Policy;
+using Microsoft.Extensions.Configuration;
 
 try
 {
+
+    IConfigurationRoot configuration = new ConfigurationBuilder()
+            .AddJsonFile("appsettings.json")
+            .Build();
+
     Console.WriteLine("Initalisation of the batch");
     {
         DbContextOptions<AreaContext> options = new DbContextOptionsBuilder<AreaContext>()
-            .UseSqlServer("Server=172.31.96.1,1433; Database=AreaDB; User Id=Bob; Password=Bob1234; TrustServerCertificate=False; Persist Security Info=True; Encrypt=False; MultiSubnetFailover=True;")
-            .Options;
+            .UseMySql(configuration.GetConnectionString("AreaDataBase"), ServerVersion.AutoDetect(configuration.GetConnectionString("AreaDataBase"))).Options;
         AreaContext context = new AreaContext(options);
         Console.WriteLine("Context created");
         const string url = "https://api.coinbase.com/v2/prices/BTC-USD/buy";
