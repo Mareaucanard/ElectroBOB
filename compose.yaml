@@ -1,17 +1,18 @@
 services:
-  db:
+  AreaDB:
     image: mariadb:11.3.1-rc
-    container_name: db
+    container_name: AreaDB
     environment:
       - MARIADB_ROOT_PASSWORD=${MARIADB_ROOT_PASSWORD}
       - MARIADB_USER=Bob
       - MARIADB_PASSWORD=temp
       - MARIADB_DATABASE=AreaDB
     volumes:
-      - /backup-volume:/backup
+      - ./backup-volume:/backup
+      - ./db-init:/docker-entrypoint-initdb.d
   server:
     depends_on:
-      - db
+      - AreaDB
     ports:
       - "8080:80"
     environment:
@@ -41,4 +42,4 @@ services:
 
 volumes:
   client:
-  db:
+  AreaDB:
