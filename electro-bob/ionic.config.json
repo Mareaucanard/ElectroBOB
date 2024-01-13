@@ -1,0 +1,7 @@
+{
+  "name": "ElectroBOB",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}

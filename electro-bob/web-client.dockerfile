@@ -1,0 +1,22 @@
+FROM node:21-alpine
+
+COPY . /electro-bob
+WORKDIR /electro-bob
+
+RUN yarn install
+RUN yarn global add nuxt
+RUN yarn global add nodejs
+# RUN yarn add serve
+
+# RUN npx nuxi generate
+
+# COPY --from=internal/web /var/electroBOB.apk dist/client.apk
+
+ENV API_URL=API_URL
+
+# CMD ["npx", "serve", "dist"]
+
+# RUN nuxt build
+RUN yarn run build
+
+CMD ["node", ".output/server/index.mjs"]
