@@ -1,63 +1,35 @@
 <script setup>
-import { storeToRefs } from 'pinia'; // import storeToRefs helper hook from pinia
-import { useAuthStore } from '../store/auth'; // import the auth store we just created
+import { storeToRefs } from 'pinia';
+import { useAuthStore } from '../store/auth';
 
 definePageMeta({
         layout: false
     })
 
+const { registerUser } = useAuthStore();
+const { authenticated } = storeToRefs(useAuthStore());
+
+const err = ref('')
+
 const user = ref({
-    email: '',
+    login: '',
     password: '',
     confirm: ''
 });
-
-const validate = (user) => {
-    const errors = []
-    if (!user.email) errors.push({ path: 'email', message: 'Required' })
-    if (!user.password) errors.push({ path: 'password', message: 'Required' })
-    if (user.password != user.confirm) errors.push({ path: 'confirm', message: 'Does not match' })
-    return errors
-}
-
-async function onSubmit(event) {
-    const { email, password } = event.data
-    const API_URL = "http://localhost:8080/api/Register"
-    try {
-        const response = await useFetch('https://dummyjson.com/users/add', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            firstName: 'Muhammad',
-            lastName: 'Ovi',
-            age: 250,
-          })
-        })
-        .then(res => res.json())
-        .then(console.log);
-    } catch (e) {
-        console.error(e)
-    }
-}
+const router = useRouter();
 
 const register = async () => {
-    const API_URL = "http://localhost:8080/api/Register"
-    try {
-        const response = await useFetch('https://dummyjson.com/users/add', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            firstName: 'Muhammad',
-            lastName: 'Ovi',
-            age: 250,
-          })
-        })
-        .then(res => res.json())
-        .then(console.log);
-    } catch (e) {
-        console.error(e)
+    if (!user.value.login) {
+        err.value = 'a user email is required';
+    } else if (!user.value.password) {
+        err.value = 'a password is required';
+    } else if (user.value.password !== user.value.confirm) {
+        err.value = 'passwords are not identical'
+    } else {
+        err.value = "";
     }
-}
+    await registerUser(user.value);
+};
 </script>
 
 <template>
@@ -68,7 +40,7 @@ const register = async () => {
                 <h1>REGISTER</h1>
                 <div class="uform">
                     <input
-                      v-model="user.username"
+                      v-model="user.login"
                       type="text"
                       class="input"
                       placeholder="user email"
@@ -91,7 +63,7 @@ const register = async () => {
                       name="psw"
                       required
                     />
-
+                    <p class="err" v-if="err"> {{err}} </p>
                     <button @click.prevent="register" class="submit">
                         <img src="../assets/submit button.png" type="submit" />
                     </button>
@@ -106,7 +78,7 @@ const register = async () => {
                 <h1>REGISTER</h1>
                 <div class="mobile-uform">
                   <input
-                    v-model="user.username"
+                    v-model="user.login"
                     type="text"
                     class="mobile-input"
                     placeholder="user email"
@@ -129,7 +101,8 @@ const register = async () => {
                       name="psw"
                       required
                     />
-                  <button @click.prevent="login" class="mobile-submit">
+                  <p class="err" v-if="err"> {{err}} </p>
+                  <button @click.prevent="register" class="mobile-submit">
                       <img src="../assets/submit button.png" type="submit" />
                   </button>
                 </div>
@@ -190,6 +163,11 @@ body {
     font-size: 25px;
     font-weight: 500;
     outline: none;
+}
+
+.err {
+    color: #b53029;
+    font-size: 20px;
 }
 
 h1 {
