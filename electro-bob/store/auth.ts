@@ -14,7 +14,7 @@ export const useAuthStore = defineStore('auth', {
   }),
   actions: {
     async authenticateUser({ login, password }: UserPayloadInterface) {
-      const { data, pending }: any = await useFetch('https://localhost:32774/api/connexion', {
+      const { data, pending }: any = await useFetch('https://bobserver:8080/api/connexion', {
         method: 'post',
         headers: { 'Content-Type': 'application/json' },
         body: {
@@ -25,8 +25,8 @@ export const useAuthStore = defineStore('auth', {
       this.loading = pending;
 
       if (data.value) {
-        this.email = data.value.email;
-        this.password = data.value.username;
+        this.email = data.value.login;
+        this.password = data.value.password;
         const token = useCookie('token');
         token.value = data?.value?.token;
         this.authenticated = true;

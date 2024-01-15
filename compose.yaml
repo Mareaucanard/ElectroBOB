@@ -10,7 +10,8 @@ services:
     volumes:
       - ./backup-volume:/backup
       - ./db-init:/docker-entrypoint-initdb.d
-  server:
+  bobserver:
+    container_name: bobserver
     depends_on:
       - AreaDB
     ports:
