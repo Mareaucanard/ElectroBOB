@@ -33,7 +33,7 @@ try
         Console.WriteLine("Testing spotify call");
         string testId = "0lzVrkjlIZJH18hk2Gcjkp"; //id of Kenji Kawai
         List<string> list = await spotifyMethods.searchMusic("Grève", spotifyToken);
-        string playlistId = await spotifyMethods.CreatePlaylist("playGreve", spotifyToken);
+        //string playlistId = await spotifyMethods.CreatePlaylist("playGreve", spotifyToken);
         Console.WriteLine("Testing spotify end");
 
         //action-reaction loop

@@ -66,8 +66,6 @@ namespace BatchMail
                 if (response.IsSuccessStatusCode)
                 {
                     string responseBody = await response.Content.ReadAsStringAsync();
-                    // Parse the JSON response and extract the access token
-                    // Note: Consider using a JSON parsing library or framework for production code
                     return responseBody.Split('"')[3];
                 }
                 else
@@ -79,7 +77,7 @@ namespace BatchMail
 
         public static string GetAuthorizationCode(string clientId, string redirectUri, string authorizeUrl)
         {
-            // Redirect the user to the Spotify authorization page
+            //redirect the user to the Spotify authorization page
             string authorizeUri = $"{authorizeUrl}?client_id={clientId}&response_type=code&redirect_uri={HttpUtility.UrlEncode(redirectUri)}&scope=user-read-private%20user-read-email";
 
             Console.WriteLine("Please visit this URL to authorize the application:");
@@ -99,7 +97,7 @@ namespace BatchMail
                     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
                     HttpRequestMessage request = new HttpRequestMessage(method, endpoint);
 
-                    //Include payload in request if method is post or put
+                    //include payload in request if method is post or put
                     if (method == HttpMethod.Put || method == HttpMethod.Post)
                     {
                         request.Content = new StringContent(payload, Encoding.UTF8, "application/json");
@@ -121,7 +119,7 @@ namespace BatchMail
             }
             catch (Exception ex)
             {
-                // Handle other errors, e.g., network issues
+                //handle errors
                 Console.WriteLine($"error making API request: {ex.Message}");
                 return null;
             }
