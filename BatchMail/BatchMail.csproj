@@ -24,4 +24,8 @@
     <ProjectReference Include="..\Eletro-BOB_API\Eletro-BOB_API.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Doc\" />
+  </ItemGroup>
+
 </Project>
