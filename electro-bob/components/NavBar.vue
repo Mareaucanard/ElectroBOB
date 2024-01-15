@@ -13,7 +13,7 @@ const isOpen = ref(false)
                 <img src="../assets/parameter.png" type="icon">
             </UButton>
             <div class="line"/>
-            <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-2xl' }">groups</UButton>
+            <UButton class="UButton" to="/spotify" :ui="{ rounded: 'rounded-2xl' }">spotify</UButton>
             <div class="line"/>
             <UButton class="UButton" to="/messages" :ui="{ rounded: 'rounded-2xl' }">message</UButton>
             <div class="line"/>
@@ -47,7 +47,7 @@ const isOpen = ref(false)
                 <UButton class="UButton" to="/settings" :ui="{ rounded: 'rounded-full' }" type="icon">
                     <img src="../assets/parameter.png" type="icon">
                 </UButton>
-                <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-full' }" type="icon">
+                <UButton class="UButton" to="/spotify" :ui="{ rounded: 'rounded-full' }" type="icon">
                     <img src="../assets/groups.png" type="icon">
                 </UButton>
                 <UButton class="UButton" to="/messages" :ui="{ rounded: 'rounded-full' }" type="icon">
