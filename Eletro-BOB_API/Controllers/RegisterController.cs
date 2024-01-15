@@ -3,7 +3,10 @@ using Eletro_BOB_API.Models;
 using Eletro_BOB_API.Context;
 using Eletro_BOB_API.Classes;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Text;
 using System.Security.Cryptography;
 
@@ -63,7 +66,34 @@ namespace Eletro_BOB_API.Controllers
                 newPref.UserId = temp.Id;
                 await _context.Preferences.AddAsync(newPref);
                 await _context.SaveChangesAsync();
-                return Ok("User created succesfuly");
+                var issuer = _config["Jwt:Issuer"];
+                var audience = _config["Jwt:Audience"];
+                var key = Encoding.ASCII.GetBytes(_config["Jwt:Key"]);
+                var tokenDescriptor = new SecurityTokenDescriptor
+                {
+                    Subject = new ClaimsIdentity(new[]
+                    {
+                        new Claim("Id", Guid.NewGuid().ToString()),
+                        new Claim(JwtRegisteredClaimNames.Sub, temp.Login),
+                        new Claim(JwtRegisteredClaimNames.Email, temp.Login),
+                        new Claim(JwtRegisteredClaimNames.Jti,
+                        Guid.NewGuid().ToString())
+                    }),
+                    Expires = DateTime.UtcNow.AddMinutes(10),
+                    Issuer = issuer,
+                    Audience = audience,
+                    SigningCredentials = new SigningCredentials
+                    (new SymmetricSecurityKey(key),
+                    SecurityAlgorithms.HmacSha512Signature)
+                };
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var token = tokenHandler.CreateToken(tokenDescriptor);
+                var jwtToken = tokenHandler.WriteToken(token);
+                returnedUser userToReturn = new returnedUser();
+                userToReturn.userId = temp.Id;
+                userToReturn.jwt = jwtToken;
+                userToReturn.username = temp.Login;
+                return Ok(userToReturn);
             }
             catch (System.Exception)
             {

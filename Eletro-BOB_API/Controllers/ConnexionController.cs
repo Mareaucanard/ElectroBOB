@@ -63,8 +63,11 @@ namespace Eletro_BOB_API.Controllers
                     var tokenHandler = new JwtSecurityTokenHandler();
                     var token = tokenHandler.CreateToken(tokenDescriptor);
                     var jwtToken = tokenHandler.WriteToken(token);
-                    var stringToken = tokenHandler.WriteToken(token);
-                    return Ok(stringToken);
+                    returnedUser userToReturn = new returnedUser();
+                    userToReturn.userId = temp.Id;
+                    userToReturn.jwt = jwtToken;
+                    userToReturn.username = temp.Login;
+                    return Ok(userToReturn);
                 }
                 else
                 {
