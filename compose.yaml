@@ -1,19 +1,23 @@
 services:
-  db:
-    ports:
-      - "1433:1433"
-    build:
-      context: db-init
+  AreaDB:
+    image: mariadb:11.3.1-rc
+    container_name: AreaDB
     environment:
-      - ACCEPT_EULA=Y
-      - MSSQL_SA_PASSWORD=${MSSQL_SA_PASSWORD}
+      - MARIADB_ROOT_PASSWORD=${MARIADB_ROOT_PASSWORD}
+      - MARIADB_USER=Bob
+      - MARIADB_PASSWORD=temp
+      - MARIADB_DATABASE=AreaDB
     volumes:
-      - db:/var/opt/mssql
-  server:
+      - ./backup-volume:/backup
+      - ./db-init:/docker-entrypoint-initdb.d
+  bobserver:
+    container_name: bobserver
     depends_on:
-      - db
+      - AreaDB
     ports:
-      - "8080:8080"
+      - "8080:80"
+    environment:
+      - MARIADB_PASSWORD=temp
     build:
       context: Eletro-BOB_API
   generate-mobile-app:
@@ -26,17 +30,17 @@ services:
   web:
     depends_on:
       - generate-mobile-app
-      - server
     build:
       context: electro-bob
       dockerfile: web-client.dockerfile
     ports:
-      - "8081:3000"
+      - "3000:3000"
     volumes:
       - client:/var/client/
     environment:
       - API_URL=${API_URL}
+      - AUTH_ORIGIN=/electro-bob
 
 volumes:
   client:
-  db:
+  AreaDB:

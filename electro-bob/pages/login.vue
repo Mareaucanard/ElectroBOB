@@ -13,14 +13,14 @@ const { authenticated } = storeToRefs(useAuthStore()); // make authenticated sta
 const err = ref('')
 
 const user = ref({
-  username: 'kminchelle',
-  password: '0lelplR',
+  login: '',
+  password: '',
 });
 const router = useRouter();
 
 const login = async () => {
   await authenticateUser(user.value);
-  if (!user.value.username) {
+  if (!user.value.login) {
     err.value = 'a user email is required';
   } else if (!user.value.password) {
     err.value = 'a password is required';
@@ -41,7 +41,7 @@ const login = async () => {
       <h1>LOGIN</h1>
       <div class="uform">
         <input
-        v-model="user.username"
+        v-model="user.login"
         type="text"
         class="input"
         placeholder="user email"
@@ -72,7 +72,7 @@ const login = async () => {
         <h1>LOGIN</h1>
         <div class="mobile-uform">
           <input
-            v-model="user.username"
+            v-model="user.login"
             type="text"
             class="mobile-input"
             placeholder="user email"

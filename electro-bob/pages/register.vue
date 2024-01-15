@@ -16,7 +16,6 @@ const user = ref({
     password: '',
     confirm: ''
 });
-const router = useRouter();
 
 const register = async () => {
     if (!user.value.login) {
