@@ -31,7 +31,7 @@ plugins:
   - jekyll-feed
 
 # This is to prevent the date to be shown in the url as it is not actually used.
-permalink: /posts/:title
+permalink: /ElectroBOB/posts/:title
 
 url: https://github.com/Mareaucanard/ElectroBOB
 baseurl: /ElectroBOB/
