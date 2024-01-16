@@ -19,9 +19,7 @@ const isOpen = ref(false)
             <div class="line"/>
         </div>
         <div class="logo">
-            <button>
                 <img src="../assets/ElectroBob 1.png" type="logo button">
-            </button>
         </div>
         <div class="start-bar">
             <div class="line"/>
@@ -29,7 +27,7 @@ const isOpen = ref(false)
             <div class="line"/>
             <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-2xl' }">automate</UButton>
             <div class="line"/>
-            <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-2xl' }" type="help">help</UButton>
+            <UButton class="UButton" to="/help" :ui="{ rounded: 'rounded-2xl' }" type="help">help</UButton>
         </div>
     </nav>
     <div class="mobile-nav" v-if="$device.isMobile">
@@ -59,7 +57,7 @@ const isOpen = ref(false)
                 <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-full' }" type="icon">
                     <img src="../assets/automate.png" type="icon">
                 </UButton>
-                <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-full' }" type="icon">
+                <UButton class="UButton" to="/help" :ui="{ rounded: 'rounded-full' }" type="icon">
                     <img src="../assets/help.png" type="icon">
                 </UButton>
           </div>
