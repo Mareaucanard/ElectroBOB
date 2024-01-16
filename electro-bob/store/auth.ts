@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 
 interface UserPayloadInterface {
-  login: string;
+  username: string;
   password: string;
 }
 
@@ -18,20 +18,20 @@ export const useAuthStore = defineStore('auth', {
     password: '',
   }),
   actions: {
-    async authenticateUser({ login, password }: UserPayloadInterface) {
-      const { data, pending }: any = await useFetch('https://bobserver:8080/api/connexion', {
+    async authenticateUser({ username, password }: UserPayloadInterface) {
+      const { data, pending }: any = await useFetch('https://dummyjson.com/auth/login', {
         method: 'post',
         headers: { 'Content-Type': 'application/json' },
         body: {
-          login,
+          username,
           password,
         },
       });
       this.loading = pending;
 
       if (data.value) {
-        this.email = data.value.login;
-        this.password = data.value.password;
+        this.email = data.value.email;
+        this.password = data.value.username;
         const token = useCookie('token');
         token.value = data?.value?.token;
         this.authenticated = true;

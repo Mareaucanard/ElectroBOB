@@ -2,8 +2,8 @@
 const err = ref('')
 
 const user = ref({
-  username: 'kminchelle',
-  password: '0lelplR',
+  username: '',
+  password: '',
 });
 
 const login = async () => {

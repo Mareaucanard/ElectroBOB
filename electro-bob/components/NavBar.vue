@@ -25,9 +25,9 @@ const isOpen = ref(false)
         </div>
         <div class="start-bar">
             <div class="line"/>
-            <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-2xl' }" >services</UButton>
+            <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-2xl' }" >jokes</UButton>
             <div class="line"/>
-            <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-2xl' }">automate</UButton>
+            <UButton class="UButton" to="/automate" :ui="{ rounded: 'rounded-2xl' }">automate</UButton>
             <div class="line"/>
             <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-2xl' }" type="help">help</UButton>
         </div>
@@ -56,7 +56,7 @@ const isOpen = ref(false)
                 <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-full' }" type="icon">
                     <img src="../assets/services.png" type="icon">
                 </UButton>
-                <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-full' }" type="icon">
+                <UButton class="UButton" to="/automate" :ui="{ rounded: 'rounded-full' }" type="icon">
                     <img src="../assets/automate.png" type="icon">
                 </UButton>
                 <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-full' }" type="icon">
