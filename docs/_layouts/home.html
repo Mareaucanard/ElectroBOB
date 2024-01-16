@@ -1,0 +1,55 @@
+---
+layout: default
+---
+
+<div class="home">
+  {%- if page.title -%}
+  <h1 class="page-heading">{{ page.title }}</h1>
+  {%- endif -%}
+
+  {{ content }}
+
+  <h1>Area ElectroBoB</h1>
+  <h2>Epitech Project ElectroBoB, promo 2026</h2>
+  <img src="assets/img/Bob.png" align="right" />
+
+  <h3>Conçu par:</h3>
+  <ul>
+    <li>Adélaïde CHANTEUX</li>
+    <li>Ange MOUQUET</li>
+    <li>Matthieu FRAIZ</li>
+    <li>Raymond VIERGE-THALAMAS</li>
+    <li>Thibault MIR</li>
+  </ul>
+  <a href="https://github.com/Mareaucanard/ElectroBOB">Répertoire GitHub</a>
+  <hr>
+  </hr>
+
+
+  <h2>Qu'est-ce qu'ElectroBoB?</h2>
+  <h3>ElectoBoB est le nom donné à l'application qui résulte du projet Tek3 Area.</h3>
+  <h3>Ce projet a pour objectif de proposer une solution hébergeable proposant une application mobile et navigateur
+    (Webapp) permettant diverses interactions dans l'objectif de faciliter la communication parmis les différentes
+    plateformes de communication.</h3>
+  <hr>
+  </hr>
+
+
+  <h2>Guide de déploiement:</h2>
+  <h3>Sur système unix:</h3>
+  <h4>Dépendances:</h4>
+  <li>Git (outre autre manière de récupérer le code source)</li>
+  <li>Docker</li>
+  <br></br>
+  <h4>Déploiement:</h4>
+  {% highlight bash %}
+  git clone https://github.com/Mareaucanard/ElectroBOB.git
+  cd ElectroBOB
+  docker-compose up
+  {% endhighlight %}
+  C'est tout!
+  (le téléchargement des images peut prendre un certain temps et les serveurs ont tendance à etre capricieux, si vous
+  rencontrez des problèmes, n'hésitez pas à relancer la commande)
+  <!-- <h3>On windows:</h3>
+// Todo // -->
+</div>
