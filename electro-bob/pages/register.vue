@@ -105,7 +105,6 @@ const register = async () => {
                       <img src="../assets/submit button.png" type="submit" />
                   </button>
                 </div>
-                <a class="mobile-register" href="/register">register</a>
             </div>
         </div>
     </div>
