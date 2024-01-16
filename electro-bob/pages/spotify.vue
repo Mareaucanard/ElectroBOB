@@ -2,13 +2,8 @@
 const err = ref('')
 
 const user = ref({
-<<<<<<< HEAD
   username: '',
   password: '',
-=======
-  username: 'kminchelle',
-  password: '0lelplR',
->>>>>>> custom_api_modif
 });
 
 const login = async () => {
