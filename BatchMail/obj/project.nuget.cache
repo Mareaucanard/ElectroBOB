@@ -2,7 +2,7 @@
   "version": 2,
   "dgSpecHash": "pLDspdbbHZxbeUJFBUyEt1xDe/xqvEGL2QcRFxpmBUwIabhmZPf893AcyxSWPyXNDy5AsuF0Rqj92eM29LBVCA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\thiba\\delivery\\ElectroBOB\\BatchMail\\BatchMail.csproj",
+  "projectFilePath": "F:\\Epitech projects\\AREA\\ElectroBOB\\BatchMail\\BatchMail.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\thiba\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\thiba\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

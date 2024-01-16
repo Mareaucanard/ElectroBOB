@@ -5,7 +5,12 @@ VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eletro-BOB_API", "Eletro-BOB_API.csproj", "{A81EE7BF-E23D-469B-AC12-68D6AC7CBC2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BatchMail", "..\BatchMail\BatchMail.csproj", "{7A6091A8-66B6-49C7-B4D2-F5074A39F84A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BatchMail", "..\BatchMail\BatchMail.csproj", "{7A6091A8-66B6-49C7-B4D2-F5074A39F84A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Doc", "Doc", "{726E6ECF-870C-4418-84AA-510CCA10D297}"
+	ProjectSection(SolutionItems) = preProject
+		Electro-Bob.md = Electro-Bob.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

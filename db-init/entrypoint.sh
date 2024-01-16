@@ -1,0 +1,2 @@
+#deprecated
+bash init.sh
