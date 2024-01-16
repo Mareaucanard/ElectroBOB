@@ -5,7 +5,7 @@
           </svg>
         <div class="joke">
             <div class="text">
-                <h2>This app really isn't complicated !<br>You don't need my help <br> ( ͡° ͜ʖ ͡°)</h2>
+                <a target="_blank" href="https://www.canva.com/design/DAF6DGsb2hI/BIHYrng_BqRwCDK2PDdotg/edit">This is the help you need !</a>
             </div>
         </div>
     </div>
@@ -14,9 +14,9 @@
             <path d="M0.981567 104.229C57.767 104.229 36.166 61.0137 36.0009 1.18543C35.9871 0.952732 35.9868 0.724224 36 0.5C36 0.728717 36.0003 0.957194 36.0009 1.18543C37.5331 26.9767 204.427 104.229 345.585 104.229H0.981567Z" fill="#BFDBDE"/>
         </svg>
         <div class="mobile-joke">
-            <div class="mobile-text">
-                <h2>This app really isn't complicated !<br>You don't need my help <br> ( ͡° ͜ʖ ͡°)</h2>
-            </div>
+            <button class="mobile-text">
+                <a target="_blank" href="https://www.canva.com/design/DAF6DGsb2hI/BIHYrng_BqRwCDK2PDdotg/edit">This is the help you need !</a>
+            </button>
         </div>
     </div>
 </template>
@@ -65,6 +65,7 @@ h2 {
 .text {
     display: flex;
     width: 470px;
+    color: #062F33;
 }
 
 .mobile-joke {
@@ -80,6 +81,7 @@ h2 {
 .mobile-text {
     display: flex;
     width: 340px;
+    color: #062F33;
 }
 
 </style>
