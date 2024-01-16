@@ -34,7 +34,7 @@ plugins:
 permalink: /posts/:title
 
 url: https://github.com/Mareaucanard/ElectroBOB
-baseurl: /ElectroBoB/
+baseurl: /
 
 defaults:
   - scope:
