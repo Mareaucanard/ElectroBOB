@@ -37,7 +37,7 @@ namespace Eletro_BOB_API.Controllers
         class Server
         {
             public int current_time { get; set; }
-            public Services[] services { get; set; }
+            public string services { get; set; }
         }
 
         [HttpGet]
@@ -55,20 +55,7 @@ namespace Eletro_BOB_API.Controllers
                 Server server = new Server();
                 TimeSpan t = DateTime.UtcNow - new DateTime(1970, 1, 1);
                 server.current_time = (int)t.TotalSeconds;
-                Actions action = new Actions();
-                action.name = "Timer";
-                action .description = "Timer for triggering action every n minutes";
-                Reactions reaction = new Reactions();
-                reaction.name = "Send Email";
-                reaction.description = "Send an email to a specific address";
-                Services service = new Services();
-                service.name = "Basics";
-                service.actions = new Actions[1];
-                service.actions.Append(action);
-                service.reactions = new Reactions[1];
-                service.reactions.Append(reaction);
-                server.services = new Services[1];
-                server.services.Append(service);
+                server.services = "[{name: Trigger, actions: [{name: Timer, description: trigger action every n minutes}], reactions: [{name: Send mail, description: Send a mail to an user}]}]";
                 string json = JsonSerializer.Serialize(client);
                 json += JsonSerializer.Serialize(server);
                 return Ok(json);

@@ -2,7 +2,7 @@
 <template>
 <div class="base" v-if="$device.isDesktop">
     <div class="settings">
-        <h1>SETTINGS</h1>
+        <h1>JOKES SETTINGS</h1>
         <label class="label language">
           LANGUAGE:
           <br>

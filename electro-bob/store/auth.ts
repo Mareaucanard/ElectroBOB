@@ -1,6 +1,11 @@
 import { defineStore } from 'pinia';
 
 interface UserPayloadInterface {
+  username: string;
+  password: string;
+}
+
+interface UserRegisterInterface {
   login: string;
   password: string;
 }
@@ -13,12 +18,12 @@ export const useAuthStore = defineStore('auth', {
     password: '',
   }),
   actions: {
-    async authenticateUser({ login, password }: UserPayloadInterface) {
-      const { data, pending }: any = await useFetch('https://localhost:32774/api/connexion', {
+    async authenticateUser({ username, password }: UserPayloadInterface) {
+      const { data, pending }: any = await useFetch('https://dummyjson.com/auth/login', {
         method: 'post',
         headers: { 'Content-Type': 'application/json' },
         body: {
-          login,
+          username,
           password,
         },
       });
@@ -36,6 +41,25 @@ export const useAuthStore = defineStore('auth', {
       const token = useCookie('token');
       this.authenticated = false;
       token.value = null;
+    },
+    async registerUser({ login, password}: UserRegisterInterface) {
+      const { data, pending }: any = await useFetch('ouiouiouioui', {
+        method: 'post',
+        headers: { 'Content-Type': 'application/json'},
+        body: {
+          login,
+          password
+        },
+      });
+      this.loading = pending;
+
+      if (data.value) {
+        this.email = data.value.email;
+        this.password = data.value.username;
+        const token = useCookie('token');
+        token.value = data?.value?.token;
+        this.authenticated = true;
+      }
     },
   },
   persist: {

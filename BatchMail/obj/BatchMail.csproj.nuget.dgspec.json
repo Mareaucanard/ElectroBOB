@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\thiba\\delivery\\ElectroBOB\\BatchMail\\BatchMail.csproj": {}
+    "F:\\Epitech projects\\AREA\\ElectroBOB\\BatchMail\\BatchMail.csproj": {}
   },
   "projects": {
-    "C:\\Users\\thiba\\delivery\\ElectroBOB\\BatchMail\\BatchMail.csproj": {
+    "F:\\Epitech projects\\AREA\\ElectroBOB\\BatchMail\\BatchMail.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\thiba\\delivery\\ElectroBOB\\BatchMail\\BatchMail.csproj",
+        "projectUniqueName": "F:\\Epitech projects\\AREA\\ElectroBOB\\BatchMail\\BatchMail.csproj",
         "projectName": "BatchMail",
-        "projectPath": "C:\\Users\\thiba\\delivery\\ElectroBOB\\BatchMail\\BatchMail.csproj",
-        "packagesPath": "C:\\Users\\thiba\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\thiba\\delivery\\ElectroBOB\\BatchMail\\obj\\",
+        "projectPath": "F:\\Epitech projects\\AREA\\ElectroBOB\\BatchMail\\BatchMail.csproj",
+        "packagesPath": "C:\\Users\\angem\\.nuget\\packages\\",
+        "outputPath": "F:\\Epitech projects\\AREA\\ElectroBOB\\BatchMail\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\thiba\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\angem\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -33,8 +33,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\thiba\\delivery\\ElectroBOB\\Eletro-BOB_API\\Eletro-BOB_API.csproj": {
-                "projectPath": "C:\\Users\\thiba\\delivery\\ElectroBOB\\Eletro-BOB_API\\Eletro-BOB_API.csproj"
+              "F:\\Epitech projects\\AREA\\ElectroBOB\\Eletro-BOB_API\\Eletro-BOB_API.csproj": {
+                "projectPath": "F:\\Epitech projects\\AREA\\ElectroBOB\\Eletro-BOB_API\\Eletro-BOB_API.csproj"
               }
             }
           }
@@ -49,6 +49,18 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Google.Apis": {
+              "target": "Package",
+              "version": "[1.52.0, )"
+            },
+            "Google.Apis.Auth": {
+              "target": "Package",
+              "version": "[1.52.0, )"
+            },
+            "Google.Apis.Plus.v1": {
+              "target": "Package",
+              "version": "[1.49.0.1627, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.0, )"
@@ -88,20 +100,20 @@
         }
       }
     },
-    "C:\\Users\\thiba\\delivery\\ElectroBOB\\Eletro-BOB_API\\Eletro-BOB_API.csproj": {
+    "F:\\Epitech projects\\AREA\\ElectroBOB\\Eletro-BOB_API\\Eletro-BOB_API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\thiba\\delivery\\ElectroBOB\\Eletro-BOB_API\\Eletro-BOB_API.csproj",
+        "projectUniqueName": "F:\\Epitech projects\\AREA\\ElectroBOB\\Eletro-BOB_API\\Eletro-BOB_API.csproj",
         "projectName": "Eletro-BOB_API",
-        "projectPath": "C:\\Users\\thiba\\delivery\\ElectroBOB\\Eletro-BOB_API\\Eletro-BOB_API.csproj",
-        "packagesPath": "C:\\Users\\thiba\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\thiba\\delivery\\ElectroBOB\\Eletro-BOB_API\\obj\\",
+        "projectPath": "F:\\Epitech projects\\AREA\\ElectroBOB\\Eletro-BOB_API\\Eletro-BOB_API.csproj",
+        "packagesPath": "C:\\Users\\angem\\.nuget\\packages\\",
+        "outputPath": "F:\\Epitech projects\\AREA\\ElectroBOB\\Eletro-BOB_API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\thiba\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\angem\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup>
 import { storeToRefs } from 'pinia'; // import storeToRefs helper hook from pinia
 import { useAuthStore } from '../store/auth'; // import the auth store we just created
 
@@ -10,6 +10,8 @@ const { authenticateUser } = useAuthStore(); // use authenticateUser action from
 
 const { authenticated } = storeToRefs(useAuthStore()); // make authenticated state reactive with storeToRefs
 
+const err = ref('')
+
 const user = ref({
   username: '',
   password: '',
@@ -17,8 +19,14 @@ const user = ref({
 const router = useRouter();
 
 const login = async () => {
-  await authenticateUser(user.value); // call authenticateUser and pass the user object
-  // redirect to homepage if user is authenticated
+  await authenticateUser(user.value);
+  if (!user.value.username) {
+    err.value = 'a user email is required';
+  } else if (!user.value.password) {
+    err.value = 'a password is required';
+  } else {
+    err.value = "email or password is incorrect";
+  }
   if (authenticated) {
     router.push('/about');
   }
@@ -33,23 +41,24 @@ const login = async () => {
       <h1>LOGIN</h1>
       <div class="uform">
         <input
-          v-model="user.username"
-          type="text"
-          class="input"
-          placeholder="user email"
-          name="uname"
-          required
+        v-model="user.username"
+        type="text"
+        class="input"
+        placeholder="user email"
+        name="uname"
+        required
         />
         <input
-          v-model="user.password"
-          type="password"
-          class="input"
-          placeholder="user password"
-          name="psw"
-          required
+        v-model="user.password"
+        type="password"
+        class="input"
+        placeholder="user password"
+        name="psw"
+        required
         />
+        <p class="err" v-if="err"> {{err}} </p>
         <button @click.prevent="login" class="submit">
-            <img src="../assets/submit button.png" type="submit" />
+          <img src="../assets/submit button.png" type="submit" />
         </button>
       </div>
       <a class="register" href="/register">register</a>
@@ -78,6 +87,7 @@ const login = async () => {
             name="psw"
             required
           />
+          <p class="err" v-if="err"> {{err}} </p>
           <button @click.prevent="login" class="mobile-submit">
               <img src="../assets/submit button.png" type="submit" />
           </button>
@@ -140,6 +150,11 @@ body {
     font-size: 25px;
     font-weight: 500;
     outline: none;
+}
+
+.err {
+  color: #b53029;
+  font-size: 20px;
 }
 
 .register {

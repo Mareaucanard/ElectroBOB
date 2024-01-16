@@ -1,0 +1,32 @@
+<sidebar class="site-sidebar h-card">
+<<<<<<< HEAD
+    <categories>Déploiement:</categories>
+    <a class="post-link" href="{% post_url 2023-10-18-deploiement-global %}">Déploiement global</a>
+    <a class="post-link" href="{% post_url 2023-10-18-deploiement-mobile %}">Déploiement mobile</a>
+    <categories>Frontend:</categories>
+    <a class="post-link" href="{% post_url 2023-10-18-frontend-global %}">Frontend global</a>
+    <categories>Backend:</categories>
+    <a class="post-link" href="{% post_url 2023-10-18-backend-global %}">Backend global</a>
+    <a class="post-link" href="{% post_url 2023-10-18-backend-api %}">Backend API</a>
+
+=======
+    <categories>Setup and usage:</categories>
+        <a class="post-link" href="{% post_url 2023-10-18-setup %}">Setup GLaDOS</a>
+        <a class="post-link" href="{% post_url 2023-10-30-usage %}">Usage GLaDOS</a>
+    <categories>Language syntax:</categories>
+        <a class="post-link" href="{% post_url 2023-10-30-general-syntax %}">Syntax introduction</a>
+        <a class="post-link" href="{% post_url 2023-10-18-arithmetical-operators %}">Arithmetical operators</a>
+        <a class="post-link" href="{% post_url 2023-10-18-logical-operators %}">Logical operators</a>
+        <a class="post-link" href="{% post_url 2023-10-18-types %}">Data types</a>
+        <a class="post-link" href="{% post_url 2023-10-30-cond-statements %}">Conditional statements</a>
+        <a class="post-link" href="{% post_url 2023-10-30-functions %}">Functions definitions and expression</a>
+        <a class="post-link" href="{% post_url 2023-10-30-loops %}">Loops</a>
+    <categories>Builtin functions:</categories>
+        {%- for post in site.categories.builtin -%}
+        <a class="post-link" href="{{ post.url | relative_url }}">
+        {{ post.title | escape }}</a>
+        {%- endfor -%}
+    <!-- <categories>Bytecode and instructions:</categories>
+        <a class="post-link" href="{% post_url 2023-10-18-instructions %}">HowTo Bytetcode</a> -->
+>>>>>>> custom_api_modif
+</sidebar>

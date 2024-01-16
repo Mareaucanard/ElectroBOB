@@ -13,23 +13,21 @@ const isOpen = ref(false)
                 <img src="../assets/parameter.png" type="icon">
             </UButton>
             <div class="line"/>
-            <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-2xl' }">groups</UButton>
+            <UButton class="UButton" to="/spotify" :ui="{ rounded: 'rounded-2xl' }">spotify</UButton>
             <div class="line"/>
             <UButton class="UButton" to="/messages" :ui="{ rounded: 'rounded-2xl' }">message</UButton>
             <div class="line"/>
         </div>
         <div class="logo">
-            <button>
                 <img src="../assets/ElectroBob 1.png" type="logo button">
-            </button>
         </div>
         <div class="start-bar">
             <div class="line"/>
-            <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-2xl' }" >services</UButton>
+            <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-2xl' }" >jokes</UButton>
             <div class="line"/>
-            <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-2xl' }">automate</UButton>
+            <UButton class="UButton" to="/automate" :ui="{ rounded: 'rounded-2xl' }">automate</UButton>
             <div class="line"/>
-            <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-2xl' }" type="help">help</UButton>
+            <UButton class="UButton" to="/help" :ui="{ rounded: 'rounded-2xl' }" type="help">help</UButton>
         </div>
     </nav>
     <div class="mobile-nav" v-if="$device.isMobile">
@@ -47,7 +45,7 @@ const isOpen = ref(false)
                 <UButton class="UButton" to="/settings" :ui="{ rounded: 'rounded-full' }" type="icon">
                     <img src="../assets/parameter.png" type="icon">
                 </UButton>
-                <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-full' }" type="icon">
+                <UButton class="UButton" to="/spotify" :ui="{ rounded: 'rounded-full' }" type="icon">
                     <img src="../assets/groups.png" type="icon">
                 </UButton>
                 <UButton class="UButton" to="/messages" :ui="{ rounded: 'rounded-full' }" type="icon">
@@ -56,10 +54,10 @@ const isOpen = ref(false)
                 <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-full' }" type="icon">
                     <img src="../assets/services.png" type="icon">
                 </UButton>
-                <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-full' }" type="icon">
+                <UButton class="UButton" to="/automate" :ui="{ rounded: 'rounded-full' }" type="icon">
                     <img src="../assets/automate.png" type="icon">
                 </UButton>
-                <UButton class="UButton" to="/login" :ui="{ rounded: 'rounded-full' }" type="icon">
+                <UButton class="UButton" to="/help" :ui="{ rounded: 'rounded-full' }" type="icon">
                     <img src="../assets/help.png" type="icon">
                 </UButton>
           </div>

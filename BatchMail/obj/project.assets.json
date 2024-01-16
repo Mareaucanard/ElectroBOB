@@ -46,6 +46,74 @@
           }
         }
       },
+      "Google.Apis/1.52.0": {
+        "type": "package",
+        "dependencies": {
+          "Google.Apis.Core": "1.52.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Apis.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Apis.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
+      "Google.Apis.Auth/1.52.0": {
+        "type": "package",
+        "dependencies": {
+          "Google.Apis": "1.52.0",
+          "Google.Apis.Core": "1.52.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Apis.Auth.PlatformServices.dll": {},
+          "lib/netstandard2.0/Google.Apis.Auth.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Apis.Auth.PlatformServices.dll": {},
+          "lib/netstandard2.0/Google.Apis.Auth.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
+      "Google.Apis.Core/1.52.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Apis.Core.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Apis.Core.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
+      "Google.Apis.Plus.v1/1.49.0.1627": {
+        "type": "package",
+        "dependencies": {
+          "Google.Apis": "1.49.0",
+          "Google.Apis.Auth": "1.49.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Apis.Plus.v1.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Apis.Plus.v1.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
       "Humanizer/2.14.1": {
         "type": "package",
         "dependencies": {
@@ -3253,6 +3321,107 @@
         "azureicon.png",
         "lib/netstandard2.0/Azure.Identity.dll",
         "lib/netstandard2.0/Azure.Identity.xml"
+      ]
+    },
+    "Google.Apis/1.52.0": {
+      "sha512": "5YWTBzHuNUiYIUoIBkCGYMokyYuaOuAn+w96lIJ2WNqeiAurKq3ZLqZ86fYae32PDWHZa+itFYc9O1iVfYi5dQ==",
+      "type": "package",
+      "path": "google.apis/1.52.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "NuGetIcon.png",
+        "google.apis.1.52.0.nupkg.sha512",
+        "google.apis.nuspec",
+        "lib/net45/Google.Apis.PlatformServices.dll",
+        "lib/net45/Google.Apis.dll",
+        "lib/net45/Google.Apis.pdb",
+        "lib/net45/Google.Apis.xml",
+        "lib/netstandard1.3/Google.Apis.dll",
+        "lib/netstandard1.3/Google.Apis.pdb",
+        "lib/netstandard1.3/Google.Apis.xml",
+        "lib/netstandard2.0/Google.Apis.dll",
+        "lib/netstandard2.0/Google.Apis.pdb",
+        "lib/netstandard2.0/Google.Apis.xml"
+      ]
+    },
+    "Google.Apis.Auth/1.52.0": {
+      "sha512": "T7JKjq4zmk8b4lrOn+kyatgDQdLytoV+i6Fw4agyWlm4Q+bbZbu3DcCz+UuliEtXHbShgHD1PWfiMJoQGuPEog==",
+      "type": "package",
+      "path": "google.apis.auth/1.52.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "NuGetIcon.png",
+        "google.apis.auth.1.52.0.nupkg.sha512",
+        "google.apis.auth.nuspec",
+        "lib/net45/Google.Apis.Auth.PlatformServices.dll",
+        "lib/net45/Google.Apis.Auth.dll",
+        "lib/net45/Google.Apis.Auth.pdb",
+        "lib/net45/Google.Apis.Auth.xml",
+        "lib/net461/Google.Apis.Auth.PlatformServices.dll",
+        "lib/net461/Google.Apis.Auth.dll",
+        "lib/net461/Google.Apis.Auth.pdb",
+        "lib/net461/Google.Apis.Auth.xml",
+        "lib/netstandard1.3/Google.Apis.Auth.PlatformServices.dll",
+        "lib/netstandard1.3/Google.Apis.Auth.dll",
+        "lib/netstandard1.3/Google.Apis.Auth.pdb",
+        "lib/netstandard1.3/Google.Apis.Auth.xml",
+        "lib/netstandard2.0/Google.Apis.Auth.PlatformServices.dll",
+        "lib/netstandard2.0/Google.Apis.Auth.dll",
+        "lib/netstandard2.0/Google.Apis.Auth.pdb",
+        "lib/netstandard2.0/Google.Apis.Auth.xml"
+      ]
+    },
+    "Google.Apis.Core/1.52.0": {
+      "sha512": "cgQpnZ9IC5SBNsAFTXHKUMB8bOkBWPLtXcLgwSYkV8oL0FfUdHwrDzH5qrf/mFB9fQIPgJyV6tdUwf2hu1UJ+A==",
+      "type": "package",
+      "path": "google.apis.core/1.52.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "NuGetIcon.png",
+        "google.apis.core.1.52.0.nupkg.sha512",
+        "google.apis.core.nuspec",
+        "lib/net45/Google.Apis.Core.dll",
+        "lib/net45/Google.Apis.Core.pdb",
+        "lib/net45/Google.Apis.Core.xml",
+        "lib/netstandard1.3/Google.Apis.Core.dll",
+        "lib/netstandard1.3/Google.Apis.Core.pdb",
+        "lib/netstandard1.3/Google.Apis.Core.xml",
+        "lib/netstandard2.0/Google.Apis.Core.dll",
+        "lib/netstandard2.0/Google.Apis.Core.pdb",
+        "lib/netstandard2.0/Google.Apis.Core.xml"
+      ]
+    },
+    "Google.Apis.Plus.v1/1.49.0.1627": {
+      "sha512": "dakqOUguAqEs19F1qfQcSpFIxZZFZhkUAieNrFhpPoDXXo03Tw8QbpDplpHoUzESR0UGq/Ho+3W7ltzjf9k1GQ==",
+      "type": "package",
+      "path": "google.apis.plus.v1/1.49.0.1627",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "google.apis.plus.v1.1.49.0.1627.nupkg.sha512",
+        "google.apis.plus.v1.nuspec",
+        "lib/net40/Google.Apis.Plus.v1.dll",
+        "lib/net40/Google.Apis.Plus.v1.pdb",
+        "lib/net40/Google.Apis.Plus.v1.xml",
+        "lib/net45/Google.Apis.Plus.v1.dll",
+        "lib/net45/Google.Apis.Plus.v1.pdb",
+        "lib/net45/Google.Apis.Plus.v1.xml",
+        "lib/netstandard1.0/Google.Apis.Plus.v1.dll",
+        "lib/netstandard1.0/Google.Apis.Plus.v1.pdb",
+        "lib/netstandard1.0/Google.Apis.Plus.v1.xml",
+        "lib/netstandard1.3/Google.Apis.Plus.v1.dll",
+        "lib/netstandard1.3/Google.Apis.Plus.v1.pdb",
+        "lib/netstandard1.3/Google.Apis.Plus.v1.xml",
+        "lib/netstandard2.0/Google.Apis.Plus.v1.dll",
+        "lib/netstandard2.0/Google.Apis.Plus.v1.pdb",
+        "lib/netstandard2.0/Google.Apis.Plus.v1.xml"
       ]
     },
     "Humanizer/2.14.1": {
@@ -8766,6 +8935,9 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "Eletro-BOB_API >= 1.0.0",
+      "Google.Apis >= 1.52.0",
+      "Google.Apis.Auth >= 1.52.0",
+      "Google.Apis.Plus.v1 >= 1.49.0.1627",
       "Microsoft.EntityFrameworkCore >= 8.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.0",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.0",
@@ -8773,23 +8945,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\thiba\\.nuget\\packages\\": {},
+    "C:\\Users\\angem\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\thiba\\delivery\\ElectroBOB\\BatchMail\\BatchMail.csproj",
+      "projectUniqueName": "F:\\Epitech projects\\AREA\\ElectroBOB\\BatchMail\\BatchMail.csproj",
       "projectName": "BatchMail",
-      "projectPath": "C:\\Users\\thiba\\delivery\\ElectroBOB\\BatchMail\\BatchMail.csproj",
-      "packagesPath": "C:\\Users\\thiba\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\thiba\\delivery\\ElectroBOB\\BatchMail\\obj\\",
+      "projectPath": "F:\\Epitech projects\\AREA\\ElectroBOB\\BatchMail\\BatchMail.csproj",
+      "packagesPath": "C:\\Users\\angem\\.nuget\\packages\\",
+      "outputPath": "F:\\Epitech projects\\AREA\\ElectroBOB\\BatchMail\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\thiba\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\angem\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -8805,8 +8977,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\thiba\\delivery\\ElectroBOB\\Eletro-BOB_API\\Eletro-BOB_API.csproj": {
-              "projectPath": "C:\\Users\\thiba\\delivery\\ElectroBOB\\Eletro-BOB_API\\Eletro-BOB_API.csproj"
+            "F:\\Epitech projects\\AREA\\ElectroBOB\\Eletro-BOB_API\\Eletro-BOB_API.csproj": {
+              "projectPath": "F:\\Epitech projects\\AREA\\ElectroBOB\\Eletro-BOB_API\\Eletro-BOB_API.csproj"
             }
           }
         }
@@ -8821,6 +8993,18 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "Google.Apis": {
+            "target": "Package",
+            "version": "[1.52.0, )"
+          },
+          "Google.Apis.Auth": {
+            "target": "Package",
+            "version": "[1.52.0, )"
+          },
+          "Google.Apis.Plus.v1": {
+            "target": "Package",
+            "version": "[1.49.0.1627, )"
+          },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
             "version": "[8.0.0, )"

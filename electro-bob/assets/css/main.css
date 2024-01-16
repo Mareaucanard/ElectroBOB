@@ -1,5 +1,5 @@
 @font-face {
     font-family: 'LeagueSpartan';
     src: local("LeagueSpartan"),
-    url('../../public/fonts/LeagueSpartan-VariableFont_wght.ttf') format('truetype');
+    url('/fonts/LeagueSpartan-VariableFont_wght.ttf') format('truetype');
 }
